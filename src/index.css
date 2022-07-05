@@ -5,6 +5,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: "#070B2E";
+}
+@font-face {
+  font-family: "STALKER1";
+  src: url("assets/fonts/STALKER1.ttf.woff") format("woff"),
+    url("assets/fonts/STALKER1.ttf.svg#STALKER1") format("svg"),
+    url("assets/fonts/STALKER1.ttf.eot"),
+    url("assets/fonts/STALKER1.ttf.eot?#iefix") format("embedded-opentype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 code {
