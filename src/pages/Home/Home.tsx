@@ -49,7 +49,7 @@ export default function Home() {
               <Typography variant="h5" alignItems="center" color="white">
                 Hello I'm
               </Typography>
-              <Typography variant="h2" alignItems="center" color="white">
+              <Typography variant="h4" alignItems="center" color="white">
                 Heshan Madhuranga
               </Typography>
               <Typography variant="h5" alignItems="center" color="white">
@@ -71,14 +71,24 @@ export default function Home() {
               Let's Talk
             </Button>
           </Stack>
+
           <Stack
-            direction="column"
-            sx={{
-              position: "absolute",
-              bottom: "0",
-              marginBottom: "100px",
-              marginLeft: "100px",
-            }}
+            direction={matches === true ? "row" : "column"}
+            sx={[
+              {
+                position: "absolute",
+                bottom: "0",
+                justifyContent: "center",
+                marginBottom: "100px",
+                marginLeft: "100px",
+              },
+              matches && {
+                position: "static",
+                marginLeft: "0",
+                marginBottom: "10px",
+                marginTop: "30px",
+              },
+            ]}
           >
             {SocialMedia &&
               SocialMedia.map((value, index) => {
@@ -90,27 +100,17 @@ export default function Home() {
                   />
                 );
               })}
-
-            <Divider orientation="vertical" flexItem />
           </Stack>
-          <Stack
-            direction="row"
-            justifyContent="center"
-            sx={{ marginTop: "0px" }}
-          >
+
+          <Stack direction="row" justifyContent="center">
             <img
               src={logo}
               alt="mainlogo"
-              width={matches === true ? "100%" : "25%"}
+              width={matches === true ? "60%" : "24%"}
               style={{ position: "absolute", bottom: "0" }}
             />
           </Stack>
         </Box>
-        <Stack
-          direction="row"
-          alignItems="center"
-          justifyContent={"center"}
-        ></Stack>
       </Container>
     </div>
   );
