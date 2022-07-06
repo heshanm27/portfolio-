@@ -2,16 +2,19 @@ import {
   Box,
   Button,
   Container,
-  Grid,
+  Divider,
   Stack,
   Typography,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import PinterestIcon from "@mui/icons-material/Pinterest";
+import CustomeIconButton from "../../components/IconButton/CustomeIconButton";
 export default function Home() {
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down("md"));
+  const matches = useMediaQuery(theme.breakpoints.down("sm"));
   const logo = require("../../assets/img/frontImage.png");
 
   const ContainerStyle = [
@@ -22,6 +25,21 @@ export default function Home() {
       paddingTop: "10px",
     },
   ];
+
+  const SocialMedia = [
+    {
+      icon: <LinkedInIcon />,
+      url: "http://www.linkedin.com",
+      label: "LinkedIn",
+    },
+    { icon: <GitHubIcon />, url: "http://www.linkedin.com", label: "GitHub" },
+    {
+      icon: <PinterestIcon />,
+      url: "http://www.linkedin.com",
+      label: "Pinterest",
+    },
+  ];
+  var arr = [2, 5, 6, 3, 8, 9];
   return (
     <div id="home" style={{ backgroundColor: "#070B2E", height: "100vh" }}>
       <Container maxWidth="xl" sx={ContainerStyle}>
@@ -55,14 +73,25 @@ export default function Home() {
           </Stack>
           <Stack
             direction="column"
-            spacing={5}
-            sx={{ position: "absolute", bottom: "0", marginBottom: "100px" }}
+            sx={{
+              position: "absolute",
+              bottom: "0",
+              marginBottom: "100px",
+              marginLeft: "100px",
+            }}
           >
-            <LinkedInIcon sx={{ color: "white" }} />
-            <LinkedInIcon sx={{ color: "white" }} />
-            <LinkedInIcon sx={{ color: "white" }} />
-            <LinkedInIcon sx={{ color: "white" }} />
-            <LinkedInIcon sx={{ color: "white" }} />
+            {SocialMedia &&
+              SocialMedia.map((value, index) => {
+                return (
+                  <CustomeIconButton
+                    Icon={value.icon}
+                    url={value.url}
+                    label={value.label}
+                  />
+                );
+              })}
+
+            <Divider orientation="vertical" flexItem />
           </Stack>
           <Stack
             direction="row"
@@ -71,7 +100,8 @@ export default function Home() {
           >
             <img
               src={logo}
-              width={matches == true ? "100%" : "25%"}
+              alt="mainlogo"
+              width={matches === true ? "100%" : "25%"}
               style={{ position: "absolute", bottom: "0" }}
             />
           </Stack>

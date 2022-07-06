@@ -5,26 +5,27 @@ import {
   useTheme,
 } from "@mui/material";
 import React from "react";
-import FolderIcon from "@mui/icons-material/Folder";
-import RestoreIcon from "@mui/icons-material/Restore";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-
-const sx = [
-  {
-    color: "white",
-    "&.MuiBottomNavigationAction-root": {
-      "&:hover": {
-        color: "red",
-      },
-    },
-  },
-];
+import HomeIcon from "@mui/icons-material/Home";
+import PersonIcon from "@mui/icons-material/Person";
+import DirectionsWalkIcon from "@mui/icons-material/DirectionsWalk";
+import InventoryIcon from "@mui/icons-material/Inventory";
 
 export default function BottomNavBar() {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   const [value, setValue] = React.useState("recents");
+
+  const sx = [
+    {
+      color: "white",
+      "&.MuiBottomNavigationAction-root": {
+        "&:hover": {
+          color: theme.palette.primary.light,
+        },
+      },
+    },
+  ];
+
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
@@ -39,7 +40,6 @@ export default function BottomNavBar() {
   return (
     <>
       <BottomNavigation
-        showLabels={true}
         sx={[
           {
             width: "40%",
@@ -59,38 +59,57 @@ export default function BottomNavBar() {
         onChange={handleChange}
       >
         <BottomNavigationAction
-          label="Recents"
+          label="Home"
           value="home"
           sx={sx}
-          icon={<RestoreIcon />}
+          icon={<HomeIcon />}
           onClick={() => handleOnClick("home")}
         />
 
         <BottomNavigationAction
-          label="about"
+          label="About"
           value="about"
           sx={sx}
-          icon={<FavoriteIcon />}
+          icon={<PersonIcon />}
           onClick={() => {
             handleOnClick("about");
           }}
         />
 
         <BottomNavigationAction
-          label="Nearby"
-          value="nearby"
+          label="Journy"
+          value="journy"
           sx={sx}
-          icon={<LocationOnIcon />}
+          icon={<DirectionsWalkIcon />}
           onClick={() => {
             // handleOnClick(value);
           }}
         />
 
         <BottomNavigationAction
-          label="Folder"
-          value="folder"
+          label="Experience"
+          value="experience"
           sx={sx}
-          icon={<FolderIcon />}
+          icon={<InventoryIcon />}
+          onClick={() => {
+            // handleOnClick(value);
+          }}
+        />
+        <BottomNavigationAction
+          label="Experience"
+          value="experience"
+          sx={sx}
+          icon={<InventoryIcon />}
+          onClick={() => {
+            // handleOnClick(value);
+          }}
+        />
+
+        <BottomNavigationAction
+          label="Experience"
+          value="experience"
+          sx={sx}
+          icon={<InventoryIcon />}
           onClick={() => {
             // handleOnClick(value);
           }}
