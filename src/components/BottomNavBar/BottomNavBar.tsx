@@ -9,7 +9,8 @@ import HomeIcon from "@mui/icons-material/Home";
 import PersonIcon from "@mui/icons-material/Person";
 import DirectionsWalkIcon from "@mui/icons-material/DirectionsWalk";
 import InventoryIcon from "@mui/icons-material/Inventory";
-
+import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
+import MessageIcon from "@mui/icons-material/Message";
 export default function BottomNavBar() {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
@@ -82,7 +83,7 @@ export default function BottomNavBar() {
           sx={sx}
           icon={<DirectionsWalkIcon />}
           onClick={() => {
-            // handleOnClick(value);
+            handleOnClick("journy");
           }}
         />
 
@@ -90,28 +91,28 @@ export default function BottomNavBar() {
           label="Experience"
           value="experience"
           sx={sx}
-          icon={<InventoryIcon />}
+          icon={<LibraryBooksIcon />}
           onClick={() => {
-            // handleOnClick(value);
+            handleOnClick("experience");
           }}
         />
         <BottomNavigationAction
-          label="Experience"
-          value="experience"
+          label="Protfolio"
+          value="protfolio"
           sx={sx}
           icon={<InventoryIcon />}
           onClick={() => {
-            // handleOnClick(value);
+            handleOnClick("protfolio");
           }}
         />
 
         <BottomNavigationAction
-          label="Experience"
-          value="experience"
+          label="Contact Me"
+          value="contact"
           sx={sx}
-          icon={<InventoryIcon />}
+          icon={<MessageIcon />}
           onClick={() => {
-            // handleOnClick(value);
+            handleOnClick("contact");
           }}
         />
       </BottomNavigation>
