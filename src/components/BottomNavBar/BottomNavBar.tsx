@@ -4,7 +4,7 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import HomeIcon from "@mui/icons-material/Home";
 import PersonIcon from "@mui/icons-material/Person";
 import DirectionsWalkIcon from "@mui/icons-material/DirectionsWalk";
@@ -38,12 +38,16 @@ export default function BottomNavBar() {
       behavior: "smooth",
     });
   };
+
+  useEffect(() => {
+    let route = document.getElementById(value);
+  }, []);
   return (
     <>
       <BottomNavigation
         sx={[
           {
-            width: "40%",
+            width: "34%",
             backgroundColor: " rgba(0, 0, 0,0.3)",
             color: "white",
             position: "fixed",
@@ -53,6 +57,7 @@ export default function BottomNavBar() {
           },
           matches && {
             width: "100%",
+            backgroundColor: " rgba(0, 0, 0,0.3)",
             marginBottom: "0px",
           },
         ]}
@@ -107,7 +112,7 @@ export default function BottomNavBar() {
         />
 
         <BottomNavigationAction
-          label="Contact Me"
+          label="Contact"
           value="contact"
           sx={sx}
           icon={<MessageIcon />}

@@ -1,22 +1,24 @@
 import {
+  Box,
   Button,
   Container,
   Grid,
   Stack,
   Typography,
+  useMediaQuery,
   useTheme,
 } from "@mui/material";
 
 export default function About() {
   const theme = useTheme();
   const logo = require("../../assets/img/about.png");
-
+  const matches = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <div id="about" style={{ backgroundColor: "#070B2E", height: "100vh" }}>
-      <Container>
+      <Container maxWidth="xl">
         <Stack
           direction="row"
-          sx={{ paddingTop: "40px" }}
+          sx={{ paddingTop: matches === true ? "10px" : "100px" }}
           justifyContent="center"
         >
           <Typography variant="h5" alignItems="center" color="white">
@@ -35,41 +37,47 @@ export default function About() {
 
         <Grid
           container
-          direction="row"
+          direction={matches === true ? "column" : "row"}
           width="100%"
-          spacing={5}
-          sx={{ marginTop: "40px" }}
+          spacing={matches === true ? 1 : 5}
+          sx={{ marginTop: matches === true ? "0px" : "40px" }}
         >
           <Grid item xs={6}>
             <img
               src={logo}
               width="100%"
               alt="cover imge"
-              style={{ transform: "scale(1.5)" }}
+              style={{
+                transform: matches === true ? "scale(1)" : "scale(1.2)",
+              }}
             />
           </Grid>
           <Grid item xs={6}>
-            <Typography
-              variant="body2"
-              textAlign={"justify"}
-              alignItems="center"
-              color="white"
-            >
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of
-              Lorem Ipsum.
-            </Typography>
-
-            <Button variant="contained" sx={{ marginTop: "40px" }}>
-              Let's talk
-            </Button>
+            <Box sx={{ display: "flex" }}>
+              <Typography
+                variant={matches === true ? "caption" : "body1"}
+                textAlign={"center"}
+                alignItems="center"
+                color="white"
+                sx={{ marginTop: "25%" }}
+              >
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book. It has
+                survived not only five centuries, but also the leap into
+                electronic typesetting, remaining essentially unchanged. It was
+                popularised in the 1960s with the release of Letraset sheets
+                containing Lorem Ipsum passages, and more recently with desktop
+                publishing software like Aldus PageMaker including versions of
+                Lorem Ipsum.
+              </Typography>
+            </Box>
+            <Stack direction="row" justifyContent="center">
+              <Button variant="contained" sx={{ marginTop: "40px" }}>
+                Let's talk
+              </Button>
+            </Stack>
           </Grid>
         </Grid>
       </Container>
