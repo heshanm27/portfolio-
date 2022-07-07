@@ -1,19 +1,18 @@
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Box, Container, Grid, Stack, Typography } from "@mui/material";
 
 import Titles from "../../components/Titles/Titles";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import ExperienceCom from "../../components/ExperienceCom/ExperienceCom";
 
 const webdev = [
-  { icon: <CheckCircleIcon />, title: "Check", subTitle: "Check" },
-  { icon: <CheckCircleIcon />, title: "Check", subTitle: "Check" },
-  { icon: <CheckCircleIcon />, title: "Check", subTitle: "Check" },
-  { icon: <CheckCircleIcon />, title: "Check", subTitle: "Check" },
-  { icon: <CheckCircleIcon />, title: "Check", subTitle: "Check" },
-  { icon: <CheckCircleIcon />, title: "Check", subTitle: "Check" },
-  { icon: <CheckCircleIcon />, title: "Check", subTitle: "Check" },
-  { icon: <CheckCircleIcon />, title: "Check", subTitle: "Check" },
-  { icon: <CheckCircleIcon />, title: "Check", subTitle: "Check" },
-  { icon: <CheckCircleIcon />, title: "Check", subTitle: "Check" },
+  { icon: <CheckCircleIcon />, title: "Html", subTitle: "Check" },
+  { icon: <CheckCircleIcon />, title: "Css", subTitle: "Check" },
+  { icon: <CheckCircleIcon />, title: "Javascript", subTitle: "Check" },
+  { icon: <CheckCircleIcon />, title: "Tailwind", subTitle: "Check" },
+  { icon: <CheckCircleIcon />, title: "React", subTitle: "Check" },
+  { icon: <CheckCircleIcon />, title: "Matrial Ui", subTitle: "Check" },
+  { icon: <CheckCircleIcon />, title: "Boostrap", subTitle: "Check" },
+  { icon: <CheckCircleIcon />, title: "Next.js", subTitle: "Check" },
 ];
 
 export default function Experience() {
@@ -25,18 +24,38 @@ export default function Experience() {
 
           <Grid container spacing={3} sx={{ justifyContent: "center" }}>
             <Grid item xs={12} md={6}>
+              <Stack direction="row" justifyContent="center">
+                <Typography
+                  variant="h5"
+                  sx={{ marginBottom: "10px" }}
+                  color={"white"}
+                >
+                  Web Development
+                </Typography>
+              </Stack>
               <Box
                 sx={{
                   border: "1px solid #40C4FF",
+                  padding: "20px",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
                 }}
               >
-                <Grid container>
+                <Grid
+                  container
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    paddingLeft: "100px",
+                  }}
+                >
                   {webdev.map((value, index) => {
                     return (
                       <Grid
                         item
                         key={index}
-                        xs={12}
+                        xs={6}
                         md={6}
                         sx={{
                           color: "white",
@@ -46,9 +65,11 @@ export default function Experience() {
                           padding: "10px",
                         }}
                       >
-                        {value.icon}
-                        <Typography>{value.title}</Typography>
-                        <Typography>{value.subTitle}</Typography>
+                        <ExperienceCom
+                          Icon={value.icon}
+                          Title={value.title}
+                          SubTitle={value.subTitle}
+                        />
                       </Grid>
                     );
                   })}
@@ -56,22 +77,110 @@ export default function Experience() {
               </Box>
             </Grid>
             <Grid item xs={12} md={6}>
-              {" "}
+              <Stack direction="row" justifyContent="center">
+                <Typography
+                  variant="h5"
+                  sx={{ marginBottom: "10px" }}
+                  color={"white"}
+                >
+                  Web Development
+                </Typography>
+              </Stack>
               <Box
                 sx={{
                   border: "1px solid #40C4FF",
-                  height: "400px",
+                  padding: "20px",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
                 }}
-              ></Box>
+              >
+                <Grid
+                  container
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    paddingLeft: "100px",
+                  }}
+                >
+                  {webdev.map((value, index) => {
+                    return (
+                      <Grid
+                        item
+                        key={index}
+                        xs={6}
+                        md={6}
+                        sx={{
+                          color: "white",
+                          justifyContent: "center",
+                          alignContent: "center",
+                          textAlign: "center",
+                          padding: "10px",
+                        }}
+                      >
+                        <ExperienceCom
+                          Icon={value.icon}
+                          Title={value.title}
+                          SubTitle={value.subTitle}
+                        />
+                      </Grid>
+                    );
+                  })}
+                </Grid>
+              </Box>
             </Grid>
             <Grid item xs={12} md={6}>
-              {" "}
+              <Stack direction="row" justifyContent="center">
+                <Typography
+                  variant="h5"
+                  sx={{ marginBottom: "10px" }}
+                  color={"white"}
+                >
+                  Web Development
+                </Typography>
+              </Stack>
               <Box
                 sx={{
                   border: "1px solid #40C4FF",
-                  height: "400px",
+                  padding: "20px",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
                 }}
-              ></Box>
+              >
+                <Grid
+                  container
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    paddingLeft: "100px",
+                  }}
+                >
+                  {webdev.map((value, index) => {
+                    return (
+                      <Grid
+                        item
+                        key={index}
+                        xs={6}
+                        md={6}
+                        sx={{
+                          color: "white",
+                          justifyContent: "center",
+                          alignContent: "center",
+                          textAlign: "center",
+                          padding: "10px",
+                        }}
+                      >
+                        <ExperienceCom
+                          Icon={value.icon}
+                          Title={value.title}
+                          SubTitle={value.subTitle}
+                        />
+                      </Grid>
+                    );
+                  })}
+                </Grid>
+              </Box>
             </Grid>
           </Grid>
         </Box>
