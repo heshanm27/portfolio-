@@ -8,6 +8,7 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
+import Titles from "../../components/Titles/Titles";
 
 export default function About() {
   const theme = useTheme();
@@ -21,18 +22,7 @@ export default function About() {
           sx={{ paddingTop: matches === true ? "10px" : "100px" }}
           justifyContent="center"
         >
-          <Typography variant="h5" alignItems="center" color="white">
-            Get to know
-          </Typography>
-        </Stack>
-        <Stack direction="row" justifyContent="center">
-          <Typography
-            variant="h2"
-            alignItems="center"
-            color={theme.palette.primary.main}
-          >
-            About Me
-          </Typography>
+          <Titles mainTitle="About Me" subTitle="   Get to know" />
         </Stack>
 
         <Grid

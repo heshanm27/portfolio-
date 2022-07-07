@@ -17,6 +17,7 @@ import TimelineDot from "@mui/lab/TimelineDot";
 import FlagIcon from "@mui/icons-material/Flag";
 import SchoolIcon from "@mui/icons-material/School";
 import PendingIcon from "@mui/icons-material/Pending";
+import Titles from "../../components/Titles/Titles";
 
 export default function Journy() {
   const theme = useTheme();
@@ -48,31 +49,7 @@ export default function Journy() {
     <div id="journy" style={{ backgroundColor: "#070B2E", height: "100vh" }}>
       <Container>
         <Box sx={{ paddingTop: matches === true ? "0px" : "40px" }}>
-          <Box>
-            <Stack
-              direction="row"
-              justifyContent="center"
-              sx={{ paddingTop: matches === true ? "0px" : "10px" }}
-            >
-              <Typography
-                variant="h2"
-                alignItems="center"
-                color={theme.palette.primary.main}
-              >
-                My Journy
-              </Typography>
-            </Stack>
-
-            <Stack
-              direction="row"
-              sx={{ paddingBottom: matches === true ? "0px" : "10px" }}
-              justifyContent="center"
-            >
-              <Typography variant="h5" alignItems="center" color="white">
-                So Far
-              </Typography>
-            </Stack>
-          </Box>
+          <Titles mainTitle="My Journy" subTitle="So Far" />
 
           <Box>
             <Timeline position="alternate">
@@ -85,7 +62,7 @@ export default function Journy() {
                       <TimelineConnector />
                     </TimelineSeparator>
                     <TimelineContent
-                      sx={{ py: matches === true ? "50px" : "40px", px: 2 }}
+                      sx={{ py: matches === true ? "50px" : "50px", px: 2 }}
                     >
                       <Typography
                         variant={matches === true ? "caption" : "h6"}
