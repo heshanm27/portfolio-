@@ -49,7 +49,7 @@ export default function About() {
                 textAlign={"center"}
                 alignItems="center"
                 color="white"
-                sx={{ marginTop: "25%" }}
+                sx={{ marginTop: "10%" }}
               >
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry. Lorem Ipsum has been the industry's standard dummy

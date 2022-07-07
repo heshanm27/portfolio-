@@ -61,7 +61,7 @@ export default function Journy() {
                       <TimelineConnector />
                     </TimelineSeparator>
                     <TimelineContent
-                      sx={{ py: matches === true ? "50px" : "40px", px: 2 }}
+                      sx={{ py: matches === true ? "30px" : "40px", px: 2 }}
                     >
                       <Typography
                         variant={matches === true ? "caption" : "h6"}

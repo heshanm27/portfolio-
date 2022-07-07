@@ -16,12 +16,14 @@ import Protfolio from "./pages/Portfolio/Protfolio";
 import Contact from "./pages/Contact/Contact";
 import Footer from "./pages/Footer/Footer";
 import HomeIcon from "@mui/icons-material/Home";
-import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import { useInView, InView } from "react-intersection-observer";
+import { useEffect, useState } from "react";
 function App() {
-  const { ref, inView } = useInView();
+  const { ref, inView: View } = useInView();
+  const [value, setValue] = useState(false);
   let theme = createTheme({
     typography: {
       fontFamily: "STALKER1",
@@ -42,16 +44,25 @@ function App() {
     right: 50,
   };
 
-  const handleOnClick = () => {
-    window.scrollTo(0, document.body.scrollHeight);
+  const handleOnClick = (val: boolean) => {
+    if (!val) {
+      window.scrollTo(0, document.body.scrollHeight);
+    } else if (val) {
+      const violation = document.getElementById("home");
+      window.scrollTo({
+        top: violation!.offsetTop,
+        behavior: "smooth",
+      });
+    }
   };
 
+  useEffect(() => {});
   theme = responsiveFontSizes(theme);
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <div>
       <ThemeProvider theme={theme}>
-        <div ref={ref}>
+        <div>
           <Home />
         </div>
         <About />
@@ -59,7 +70,10 @@ function App() {
         <Experience />
         <Protfolio />
         <Contact />
-        <Footer />
+
+        <InView as="div" onChange={(inView, entry) => setValue(inView)}>
+          <Footer />
+        </InView>
         <Box
           sx={[
             {
@@ -77,18 +91,18 @@ function App() {
         </Box>
         <motion.div
           animate={{
-            display: inView ? "none" : "block",
-            opacity: !inView ? 1 : 0,
+            display: View ? "none" : "block",
+            opacity: !View ? 1 : 0,
           }}
         >
           <Fab
             sx={fabStyle}
             color="primary"
             aria-label="add"
-            onClick={handleOnClick}
+            onClick={() => handleOnClick(value)}
             size="small"
           >
-            <ArrowUpwardIcon />
+            {value ? <HomeIcon /> : <ArrowDownwardIcon />}
           </Fab>
         </motion.div>
       </ThemeProvider>

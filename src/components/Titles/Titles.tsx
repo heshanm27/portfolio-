@@ -9,7 +9,7 @@ export default function Titles(props: prop) {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   return (
-    <Box>
+    <Box sx={{ padding: "30px" }}>
       <Stack direction="row" justifyContent="center">
         <Typography variant="h5" alignItems="center" color="white">
           {props.subTitle}
