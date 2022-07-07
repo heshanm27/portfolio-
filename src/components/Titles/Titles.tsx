@@ -17,7 +17,7 @@ export default function Titles(props: prop) {
       </Stack>
       <Stack direction="row" justifyContent="center">
         <Typography
-          variant="h2"
+          variant="h3"
           alignItems="center"
           color={theme.palette.primary.main}
         >

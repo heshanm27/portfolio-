@@ -12,7 +12,6 @@ import TimelineItem from "@mui/lab/TimelineItem";
 import TimelineSeparator from "@mui/lab/TimelineSeparator";
 import TimelineConnector from "@mui/lab/TimelineConnector";
 import TimelineContent from "@mui/lab/TimelineContent";
-import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
 import TimelineDot from "@mui/lab/TimelineDot";
 import FlagIcon from "@mui/icons-material/Flag";
 import SchoolIcon from "@mui/icons-material/School";
@@ -62,7 +61,7 @@ export default function Journy() {
                       <TimelineConnector />
                     </TimelineSeparator>
                     <TimelineContent
-                      sx={{ py: matches === true ? "50px" : "50px", px: 2 }}
+                      sx={{ py: matches === true ? "50px" : "40px", px: 2 }}
                     >
                       <Typography
                         variant={matches === true ? "caption" : "h6"}

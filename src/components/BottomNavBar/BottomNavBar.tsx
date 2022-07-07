@@ -4,7 +4,7 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import React, { useEffect } from "react";
+import React from "react";
 import HomeIcon from "@mui/icons-material/Home";
 import PersonIcon from "@mui/icons-material/Person";
 import DirectionsWalkIcon from "@mui/icons-material/DirectionsWalk";
@@ -39,9 +39,6 @@ export default function BottomNavBar() {
     });
   };
 
-  useEffect(() => {
-    let route = document.getElementById(value);
-  }, []);
   return (
     <>
       <BottomNavigation

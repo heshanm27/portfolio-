@@ -1,6 +1,7 @@
 import {
   Box,
   createTheme,
+  Fab,
   responsiveFontSizes,
   ThemeProvider,
   useMediaQuery,
@@ -14,8 +15,13 @@ import Experience from "./pages/Experience/Experiene";
 import Protfolio from "./pages/Portfolio/Protfolio";
 import Contact from "./pages/Contact/Contact";
 import Footer from "./pages/Footer/Footer";
-import { responsiveProperty } from "@mui/material/styles/cssUtils";
+import HomeIcon from "@mui/icons-material/Home";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 function App() {
+  const { ref, inView } = useInView();
   let theme = createTheme({
     typography: {
       fontFamily: "STALKER1",
@@ -30,13 +36,24 @@ function App() {
     },
   });
 
-  theme = responsiveFontSizes(theme);
+  const fabStyle = {
+    position: "fixed",
+    bottom: 50,
+    right: 50,
+  };
 
+  const handleOnClick = () => {
+    window.scrollTo(0, document.body.scrollHeight);
+  };
+
+  theme = responsiveFontSizes(theme);
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <div>
       <ThemeProvider theme={theme}>
-        <Home />
+        <div ref={ref}>
+          <Home />
+        </div>
         <About />
         <Journy />
         <Experience />
@@ -52,12 +69,28 @@ function App() {
               justifyContent: "center",
             },
             matches && {
-              width: "100%",
+              width: "80%",
             },
           ]}
         >
           <BottomNavBar />
         </Box>
+        <motion.div
+          animate={{
+            display: inView ? "none" : "block",
+            opacity: !inView ? 1 : 0,
+          }}
+        >
+          <Fab
+            sx={fabStyle}
+            color="primary"
+            aria-label="add"
+            onClick={handleOnClick}
+            size="small"
+          >
+            <ArrowUpwardIcon />
+          </Fab>
+        </motion.div>
       </ThemeProvider>
     </div>
   );
