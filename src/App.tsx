@@ -20,7 +20,7 @@ import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 
 import { motion } from "framer-motion";
 import { useInView, InView } from "react-intersection-observer";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 function App() {
   const { ref, inView: View } = useInView();
   const [value, setValue] = useState(false);
@@ -38,16 +38,10 @@ function App() {
     },
   });
 
-  const fabStyle = {
-    position: "fixed",
-    bottom: 50,
-    right: 50,
-  };
-
   const handleOnClick = (val: boolean) => {
-    if (!val) {
+    if (val) {
       window.scrollTo(0, document.body.scrollHeight);
-    } else if (val) {
+    } else {
       const violation = document.getElementById("home");
       window.scrollTo({
         top: violation!.offsetTop,
@@ -56,24 +50,33 @@ function App() {
     }
   };
 
-  useEffect(() => {});
   theme = responsiveFontSizes(theme);
   const matches = useMediaQuery(theme.breakpoints.down("md"));
+  const fabStyle = [
+    {
+      position: "fixed",
+      bottom: 50,
+      right: 50,
+    },
+    matches && {
+      bottom: 100,
+      right: 25,
+    },
+  ];
   return (
     <div>
       <ThemeProvider theme={theme}>
-        <div>
+        <InView as="div" onChange={(inView, entry) => setValue(inView)}>
           <Home />
-        </div>
+        </InView>
         <About />
         <Journy />
         <Experience />
         <Protfolio />
         <Contact />
 
-        <InView as="div" onChange={(inView, entry) => setValue(inView)}>
-          <Footer />
-        </InView>
+        <Footer />
+
         <Box
           sx={[
             {
@@ -83,7 +86,7 @@ function App() {
               justifyContent: "center",
             },
             matches && {
-              width: "80%",
+              width: "100%",
             },
           ]}
         >
@@ -102,7 +105,7 @@ function App() {
             onClick={() => handleOnClick(value)}
             size="small"
           >
-            {value ? <HomeIcon /> : <ArrowDownwardIcon />}
+            {value ? <ArrowDownwardIcon /> : <HomeIcon />}
           </Fab>
         </motion.div>
       </ThemeProvider>

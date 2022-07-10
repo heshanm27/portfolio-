@@ -42,34 +42,25 @@ export default function Experience() {
                   alignItems: "center",
                 }}
               >
-                <Grid
-                  container
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    paddingLeft: "100px",
-                  }}
-                >
+                <Grid container>
                   {webdev.map((value, index) => {
                     return (
-                      <Grid
-                        item
-                        key={index}
-                        xs={6}
-                        md={6}
-                        sx={{
-                          color: "white",
-                          justifyContent: "center",
-                          alignContent: "center",
-                          textAlign: "center",
-                          padding: "10px",
-                        }}
-                      >
-                        <ExperienceCom
-                          Icon={value.icon}
-                          Title={value.title}
-                          SubTitle={value.subTitle}
-                        />
+                      <Grid item key={index} xs={6} md={6}>
+                        <Box
+                          sx={{
+                            color: "white",
+                            justifyContent: "center",
+                            alignContent: "center",
+                            textAlign: "center",
+                            padding: "10px 10px 10px 20px",
+                          }}
+                        >
+                          <ExperienceCom
+                            Icon={value.icon}
+                            Title={value.title}
+                            SubTitle={value.subTitle}
+                          />
+                        </Box>
                       </Grid>
                     );
                   })}
@@ -95,34 +86,25 @@ export default function Experience() {
                   alignItems: "center",
                 }}
               >
-                <Grid
-                  container
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    paddingLeft: "100px",
-                  }}
-                >
+                <Grid container>
                   {webdev.map((value, index) => {
                     return (
-                      <Grid
-                        item
-                        key={index}
-                        xs={6}
-                        md={6}
-                        sx={{
-                          color: "white",
-                          justifyContent: "center",
-                          alignContent: "center",
-                          textAlign: "center",
-                          padding: "10px",
-                        }}
-                      >
-                        <ExperienceCom
-                          Icon={value.icon}
-                          Title={value.title}
-                          SubTitle={value.subTitle}
-                        />
+                      <Grid item key={index} xs={6} md={6}>
+                        <Box
+                          sx={{
+                            color: "white",
+                            justifyContent: "center",
+                            alignContent: "center",
+                            textAlign: "center",
+                            padding: "10px 10px 10px 20px",
+                          }}
+                        >
+                          <ExperienceCom
+                            Icon={value.icon}
+                            Title={value.title}
+                            SubTitle={value.subTitle}
+                          />
+                        </Box>
                       </Grid>
                     );
                   })}
@@ -148,34 +130,25 @@ export default function Experience() {
                   alignItems: "center",
                 }}
               >
-                <Grid
-                  container
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    paddingLeft: "100px",
-                  }}
-                >
+                <Grid container>
                   {webdev.map((value, index) => {
                     return (
-                      <Grid
-                        item
-                        key={index}
-                        xs={6}
-                        md={6}
-                        sx={{
-                          color: "white",
-                          justifyContent: "center",
-                          alignContent: "center",
-                          textAlign: "center",
-                          padding: "10px",
-                        }}
-                      >
-                        <ExperienceCom
-                          Icon={value.icon}
-                          Title={value.title}
-                          SubTitle={value.subTitle}
-                        />
+                      <Grid item key={index} xs={6} md={6}>
+                        <Box
+                          sx={{
+                            color: "white",
+                            justifyContent: "center",
+                            alignContent: "center",
+                            textAlign: "center",
+                            padding: "10px 10px 10px 20px",
+                          }}
+                        >
+                          <ExperienceCom
+                            Icon={value.icon}
+                            Title={value.title}
+                            SubTitle={value.subTitle}
+                          />
+                        </Box>
                       </Grid>
                     );
                   })}

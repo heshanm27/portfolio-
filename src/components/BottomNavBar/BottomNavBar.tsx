@@ -56,18 +56,22 @@ export default function BottomNavBar() {
             width: "100%",
             backgroundColor: " rgba(0, 0, 0,0.3)",
             marginBottom: "0px",
+            left: "50%",
+            transform: "translate(-50%, 0)",
           },
         ]}
         value={value}
         onChange={handleChange}
       >
-        <BottomNavigationAction
-          label="Home"
-          value="home"
-          sx={sx}
-          icon={<HomeIcon />}
-          onClick={() => handleOnClick("home")}
-        />
+        {!matches && (
+          <BottomNavigationAction
+            label="Home"
+            value="home"
+            sx={sx}
+            icon={<HomeIcon />}
+            onClick={() => handleOnClick("home")}
+          />
+        )}
 
         <BottomNavigationAction
           label="About"
