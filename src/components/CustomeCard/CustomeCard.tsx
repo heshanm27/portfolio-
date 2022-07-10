@@ -26,7 +26,7 @@ export default function CustomeCard(props: cardprop) {
         <CardActionArea>
           <CardMedia
             component="img"
-            height="240"
+            height="200"
             image={props.img}
             alt="green iguana"
           />

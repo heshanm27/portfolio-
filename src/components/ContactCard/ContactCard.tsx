@@ -10,6 +10,11 @@ type prop = {
   Icon: React.ReactElement<SvgIconProps>;
   ContactMethod: string;
   Connactinfo: string;
+  url: string;
+};
+
+const handleOnClick = (value: string) => {
+  window.open(value, "_blank");
 };
 export default function ContactCard(props: prop) {
   return (
@@ -29,7 +34,9 @@ export default function ContactCard(props: prop) {
         <Typography sx={{ mb: 1.5 }} color="white">
           {props.Connactinfo}
         </Typography>
-        <Button variant="text">send a message</Button>
+        <Button variant="text" onClick={() => handleOnClick(props.url)}>
+          send a message
+        </Button>
       </CardContent>
     </Card>
   );

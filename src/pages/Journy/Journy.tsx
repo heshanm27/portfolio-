@@ -45,12 +45,16 @@ export default function Journy() {
 
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   return (
-    <div id="journy" style={{ backgroundColor: "#070B2E", height: "100vh" }}>
+    <div id="journy" style={{ backgroundColor: "#070B2E" }}>
       <Container>
-        <Box sx={{ paddingTop: matches === true ? "0px" : "40px" }}>
+        <Box
+          sx={{
+            paddingTop: matches === true ? "0px" : "40px",
+          }}
+        >
           <Titles mainTitle="My Journy" subTitle="So Far" />
 
-          <Box>
+          <Box sx={{ marginBottom: "-20px" }}>
             <Timeline position="alternate">
               {journy.map((value, index) => {
                 return (
@@ -61,7 +65,7 @@ export default function Journy() {
                       <TimelineConnector />
                     </TimelineSeparator>
                     <TimelineContent
-                      sx={{ py: matches === true ? "30px" : "40px", px: 2 }}
+                      sx={{ py: matches === true ? "70px" : "30px", px: 2 }}
                     >
                       <Typography
                         variant={matches === true ? "caption" : "h6"}

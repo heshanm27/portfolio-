@@ -15,11 +15,11 @@ export default function About() {
   const logo = require("../../assets/img/about.png");
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   return (
-    <div id="about" style={{ backgroundColor: "#070B2E", height: "100vh" }}>
+    <div id="about" style={{ backgroundColor: "#070B2E" }}>
       <Container maxWidth="xl">
         <Stack
           direction="row"
-          sx={{ paddingTop: matches === true ? "10px" : "100px" }}
+          sx={{ paddingTop: matches === true ? "10px" : "90px" }}
           justifyContent="center"
         >
           <Titles mainTitle="About Me" subTitle="   Get to know" />

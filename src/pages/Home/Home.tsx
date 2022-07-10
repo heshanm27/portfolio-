@@ -2,33 +2,25 @@ import {
   Box,
   Button,
   Container,
-  IconButton,
-  Slide,
   Stack,
   Typography,
   useMediaQuery,
   useTheme,
-  Zoom,
 } from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import PinterestIcon from "@mui/icons-material/Pinterest";
 import CustomeIconButton from "../../components/IconButton/CustomeIconButton";
 import { useInView } from "react-intersection-observer";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { AppRefContext } from "../../Context/Context";
 
 export default function Home() {
-  const { ref, inView } = useInView();
+  const { ref } = useInView();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("sm"));
   const logo = require("../../assets/img/frontImage.png");
-  const [checked, setChecked] = useState(false);
-  const apprefContext = useContext(AppRefContext);
 
-  const handleChange = () => {
-    setChecked((prev) => !prev);
-  };
   const ContainerStyle = [
     {
       paddingTop: "20px",
