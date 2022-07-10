@@ -2,10 +2,13 @@ import {
   Box,
   Button,
   Container,
+  IconButton,
+  Slide,
   Stack,
   Typography,
   useMediaQuery,
   useTheme,
+  Zoom,
 } from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -20,9 +23,12 @@ export default function Home() {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("sm"));
   const logo = require("../../assets/img/frontImage.png");
-
+  const [checked, setChecked] = useState(false);
   const apprefContext = useContext(AppRefContext);
 
+  const handleChange = () => {
+    setChecked((prev) => !prev);
+  };
   const ContainerStyle = [
     {
       paddingTop: "20px",
