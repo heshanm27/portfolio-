@@ -46,21 +46,16 @@ export default function About() {
             <Box sx={{ display: "flex" }}>
               <Typography
                 variant={matches === true ? "caption" : "body1"}
-                textAlign={"center"}
+                textAlign={"left"}
                 alignItems="center"
                 color="white"
                 sx={{ marginTop: "10%" }}
               >
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged. It was
-                popularised in the 1960s with the release of Letraset sheets
-                containing Lorem Ipsum passages, and more recently with desktop
-                publishing software like Aldus PageMaker including versions of
-                Lorem Ipsum.
+                Hello! I'm Heshan Madhuranga , currently, I'm an undergraduate
+                student at the Sri Lanka Institute of Information Technology in
+                the Faculty of Computing. I'm currently working on my academic
+                work , side projects and also looking for an internship to build
+                up my skills and choose my career path.
               </Typography>
             </Box>
             <Stack direction="row" justifyContent="center">

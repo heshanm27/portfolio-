@@ -1,6 +1,7 @@
 import {
   BottomNavigation,
   BottomNavigationAction,
+  Tooltip,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
@@ -27,6 +28,13 @@ export default function BottomNavBar() {
     },
   ];
 
+  const arrayBottomNav = [
+    { label: "About", value: "about", Icon: <PersonIcon /> },
+    { label: "Journy", value: "journy", Icon: <DirectionsWalkIcon /> },
+    { label: "Experience", value: "experience", Icon: <LibraryBooksIcon /> },
+    { label: "Protfolio", value: "protfolio", Icon: <InventoryIcon /> },
+    { label: "Contact", value: "contact", Icon: <MessageIcon /> },
+  ];
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
@@ -64,63 +72,33 @@ export default function BottomNavBar() {
         onChange={handleChange}
       >
         {!matches && (
-          <BottomNavigationAction
-            label="Home"
-            value="home"
-            sx={sx}
-            icon={<HomeIcon />}
-            onClick={() => handleOnClick("home")}
-          />
+          <Tooltip title="Home" placement="top">
+            <BottomNavigationAction
+              label="Home"
+              value="home"
+              sx={sx}
+              icon={<HomeIcon />}
+              onClick={() => handleOnClick("home")}
+            />
+          </Tooltip>
         )}
 
-        <BottomNavigationAction
-          label="About"
-          value="about"
-          sx={sx}
-          icon={<PersonIcon />}
-          onClick={() => {
-            handleOnClick("about");
-          }}
-        />
-
-        <BottomNavigationAction
-          label="Journy"
-          value="journy"
-          sx={sx}
-          icon={<DirectionsWalkIcon />}
-          onClick={() => {
-            handleOnClick("journy");
-          }}
-        />
-
-        <BottomNavigationAction
-          label="Experience"
-          value="experience"
-          sx={sx}
-          icon={<LibraryBooksIcon />}
-          onClick={() => {
-            handleOnClick("experience");
-          }}
-        />
-        <BottomNavigationAction
-          label="Protfolio"
-          value="protfolio"
-          sx={sx}
-          icon={<InventoryIcon />}
-          onClick={() => {
-            handleOnClick("protfolio");
-          }}
-        />
-
-        <BottomNavigationAction
-          label="Contact"
-          value="contact"
-          sx={sx}
-          icon={<MessageIcon />}
-          onClick={() => {
-            handleOnClick("contact");
-          }}
-        />
+        {arrayBottomNav.map((nav, index) => {
+          return (
+            <Tooltip title={nav.label} placement="top">
+              <BottomNavigationAction
+                key={index}
+                label={nav.label}
+                value={nav.value}
+                sx={sx}
+                icon={nav.Icon}
+                onClick={() => {
+                  handleOnClick(nav.value);
+                }}
+              />
+            </Tooltip>
+          );
+        })}
       </BottomNavigation>
     </>
   );

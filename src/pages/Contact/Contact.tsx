@@ -1,5 +1,6 @@
 import {
   Box,
+  CircularProgress,
   Container,
   Stack,
   TextField,
@@ -14,6 +15,7 @@ import ContactCard from "../../components/ContactCard/ContactCard";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import SendIcon from "@mui/icons-material/Send";
 import { LoadingButton } from "@mui/lab";
+import CustomeDialog from "../../components/CustomeDialog/CustomeDialog";
 
 const details = [
   {
@@ -41,9 +43,15 @@ export default function Contact() {
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   const form = useRef<HTMLFormElement>(null);
   const [isLoading, SetIsloading] = useState(false);
+  const [openDialog, SetOpenDialog] = useState(false);
+  const handleClose = () => {
+    SetOpenDialog(false);
+  };
+
   const handleonSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     SetIsloading(true);
+    console.log(event.currentTarget.reset());
     emailjs
       .sendForm(
         "service_suyhqmn",
@@ -53,9 +61,10 @@ export default function Contact() {
       )
       .then(
         (result: any) => {
-          console.log(result.text);
+          console.log(result);
+          form.current?.reset();
           SetIsloading(false);
-          event.currentTarget.reset();
+          SetOpenDialog(true);
         },
         (error: any) => {
           console.log(error.text);
@@ -120,12 +129,23 @@ export default function Contact() {
                   loading={isLoading}
                   variant="contained"
                   type="submit"
+                  color="primary"
+                  loadingIndicator={
+                    <CircularProgress color="primary" size={16} />
+                  }
                 >
                   Send Message
                 </LoadingButton>
               </Stack>
             </form>
           </Box>
+          <CustomeDialog
+            Open={openDialog}
+            handleClose={handleClose}
+            ButtonText="OK"
+            DialogText="I will reply you as soon as possible"
+            DialogTitle="Thank you reaching me out!"
+          />
         </Stack>
       </Container>
     </div>

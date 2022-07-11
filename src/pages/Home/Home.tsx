@@ -105,6 +105,7 @@ export default function Home() {
                     Icon={value.icon}
                     url={value.url}
                     label={value.label}
+                    isScoial={false}
                   />
                 );
               })}

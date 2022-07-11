@@ -1,25 +1,40 @@
-import { IconButton, SvgIconProps, Tooltip } from "@mui/material";
+import { Box, IconButton, SvgIconProps, Tooltip } from "@mui/material";
 import React from "react";
 
 type btnProps = {
   Icon: React.ReactElement<SvgIconProps>;
   url: string;
   label: string;
+  isScoial: boolean;
 };
 
-const style = [
-  {
-    "&.MuiIconButton-root": {
-      "&:hover": {
-        color: "white",
-        backgroundColor: "#40C4FF",
-        opacity: 0.8,
+export default function CustomeIconButton(props: btnProps) {
+  const style = [
+    {
+      "&.MuiIconButton-root": {
+        "&:hover": {
+          color: "white",
+          backgroundColor: "#40C4FF",
+          opacity: 0.8,
+        },
       },
     },
-  },
-];
+  ];
 
-export default function CustomeIconButton(props: btnProps) {
+  const style2 = [
+    {
+      "&.MuiIconButton-root": {
+        "&:hover": {
+          color: "black",
+          backgroundColor: "white",
+          borderColor: "black",
+          opacity: 0.8,
+        },
+        color: "white",
+        backgroundColor: "black",
+      },
+    },
+  ];
   return (
     <Tooltip title={props.label} placement="right">
       <IconButton
@@ -27,9 +42,9 @@ export default function CustomeIconButton(props: btnProps) {
         onClick={() => {
           window.open(props.url, "_blank");
         }}
-        color="primary"
+        color={props.isScoial === true ? "default" : "primary"}
         size="large"
-        sx={style}
+        sx={props.isScoial == true ? style2 : style}
       >
         {props.Icon}
       </IconButton>
