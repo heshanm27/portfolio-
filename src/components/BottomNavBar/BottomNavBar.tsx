@@ -39,8 +39,8 @@ export default function BottomNavBar() {
     setValue(newValue);
   };
 
-  const handleOnClick = (value: string) => {
-    const violation = document.getElementById(value);
+  const handleOnClick = (val: string) => {
+    const violation = document.getElementById(val);
     window.scrollTo({
       top: violation!.offsetTop,
       behavior: "smooth",

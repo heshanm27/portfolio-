@@ -35,7 +35,7 @@ export default function CustomeCard(props: cardprop) {
               {props.title}
             </Typography>
             {props.chips.map((chips, index) => {
-              return <Chip label={chips} />;
+              return <Chip label={chips} key={index} />;
             })}
           </CardContent>
         </CardActionArea>

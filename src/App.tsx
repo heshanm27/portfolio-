@@ -22,7 +22,7 @@ import { motion } from "framer-motion";
 import { useInView, InView } from "react-intersection-observer";
 import { useState } from "react";
 function App() {
-  const { ref, inView: View } = useInView();
+  const { inView: View } = useInView();
   const [value, setValue] = useState(false);
   let theme = createTheme({
     typography: {
@@ -66,7 +66,7 @@ function App() {
   return (
     <div>
       <ThemeProvider theme={theme}>
-        <InView as="div" onChange={(inView, entry) => setValue(inView)}>
+        <InView as="div" onChange={(inView) => setValue(inView)}>
           <Home />
         </InView>
         <About />

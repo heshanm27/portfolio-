@@ -59,6 +59,7 @@ export default function Experience() {
                             Icon={value.icon}
                             Title={value.title}
                             SubTitle={value.subTitle}
+                            key={index}
                           />
                         </Box>
                       </Grid>
@@ -103,6 +104,7 @@ export default function Experience() {
                             Icon={value.icon}
                             Title={value.title}
                             SubTitle={value.subTitle}
+                            key={index}
                           />
                         </Box>
                       </Grid>

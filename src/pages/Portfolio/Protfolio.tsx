@@ -1,4 +1,4 @@
-import { Box, Container, Grid, Typography, useTheme } from "@mui/material";
+import { Box, Container, Grid, useTheme } from "@mui/material";
 import CustomeCard from "../../components/CustomeCard/CustomeCard";
 import Titles from "../../components/Titles/Titles";
 

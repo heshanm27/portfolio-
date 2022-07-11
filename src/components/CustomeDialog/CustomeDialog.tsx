@@ -29,13 +29,7 @@ type prop = {
   Open: boolean;
   handleClose: (params: any) => void;
 };
-const style = [
-  {
-    ".&MuiDialog-paper": {
-      backgroundColor: "#070B2E",
-    },
-  },
-];
+
 export default function CustomeDialog(props: prop) {
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));

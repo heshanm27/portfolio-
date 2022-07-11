@@ -12,8 +12,6 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import PinterestIcon from "@mui/icons-material/Pinterest";
 import CustomeIconButton from "../../components/IconButton/CustomeIconButton";
 import { useInView } from "react-intersection-observer";
-import { useContext, useState } from "react";
-import { AppRefContext } from "../../Context/Context";
 
 export default function Home() {
   const { ref } = useInView();
@@ -102,6 +100,7 @@ export default function Home() {
               SocialMedia.map((value, index) => {
                 return (
                   <CustomeIconButton
+                    key={index}
                     Icon={value.icon}
                     url={value.url}
                     label={value.label}
