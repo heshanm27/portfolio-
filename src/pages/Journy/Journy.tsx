@@ -1,12 +1,11 @@
 import {
   Box,
   Container,
-  Stack,
   Typography,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import React from "react";
+
 import Timeline from "@mui/lab/Timeline";
 import TimelineItem from "@mui/lab/TimelineItem";
 import TimelineSeparator from "@mui/lab/TimelineSeparator";
@@ -58,7 +57,7 @@ export default function Journy() {
             <Timeline position="alternate">
               {journy.map((value, index) => {
                 return (
-                  <TimelineItem color="white">
+                  <TimelineItem color="white" key={index}>
                     <TimelineSeparator>
                       <TimelineConnector />
                       <TimelineDot color="primary">{value.icon}</TimelineDot>

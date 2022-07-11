@@ -1,4 +1,4 @@
-import { Box, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Stack, Typography, useTheme } from "@mui/material";
 
 type prop = {
   subTitle: string;
@@ -7,7 +7,7 @@ type prop = {
 
 export default function Titles(props: prop) {
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down("md"));
+
   return (
     <Box sx={{ padding: "30px" }}>
       <Stack direction="row" justifyContent="center">

@@ -44,7 +44,7 @@ export default function CustomeIconButton(props: btnProps) {
         }}
         color={props.isScoial === true ? "default" : "primary"}
         size="large"
-        sx={props.isScoial == true ? style2 : style}
+        sx={props.isScoial === true ? style2 : style}
       >
         {props.Icon}
       </IconButton>
