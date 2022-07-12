@@ -15,7 +15,9 @@ type cardprop = {
   img: string;
   chips: Array<string>;
 };
-
+const handleLink = (url: string) => {
+  window.open(url);
+};
 export default function CustomeCard(props: cardprop) {
   return (
     <>
@@ -35,12 +37,24 @@ export default function CustomeCard(props: cardprop) {
               {props.title}
             </Typography>
             {props.chips.map((chips, index) => {
-              return <Chip label={chips} key={index} />;
+              return (
+                <Chip
+                  color="secondary"
+                  label={chips}
+                  key={index}
+                  sx={{ margin: "5px" }}
+                />
+              );
             })}
           </CardContent>
         </CardActionArea>
         <CardActions sx={{ display: "flex", justifyContent: "center" }}>
-          <Button variant="contained" size="small" color="primary">
+          <Button
+            onClick={() => handleLink(props.url)}
+            variant="contained"
+            size="small"
+            color="primary"
+          >
             GitHub
           </Button>
         </CardActions>

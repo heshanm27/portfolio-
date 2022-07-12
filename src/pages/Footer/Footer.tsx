@@ -46,12 +46,12 @@ const socialBtnArr = [
   {
     Icon: <InstagramIcon />,
     label: "Instagram",
-    url: "https://www.facebook.com/hashan.madaranga.7/",
+    url: "https://www.instagram.com/heshanmadhurang/",
   },
   {
     Icon: <TwitterIcon />,
     label: "Twitter",
-    url: "https://www.facebook.com/hashan.madaranga.7/",
+    url: "https://twitter.com/HeshanMaduran15",
   },
 ];
 

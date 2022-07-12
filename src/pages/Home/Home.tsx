@@ -16,6 +16,12 @@ import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import { Engine } from "tsparticles-engine";
 import { motion } from "framer-motion";
+import {
+  container,
+  itemLogo,
+  itemBtn,
+  item,
+} from "../../components/Animations/Animations";
 export default function Home() {
   const { ref } = useInView();
   const theme = useTheme();
@@ -47,7 +53,7 @@ export default function Home() {
 
   const handleDownlaod = () => {
     window.open(
-      "https://drive.google.com/file/d/1cn1tlPdY4jLnJqQfcqcaNXH3zlI_IFng/view?usp=sharing",
+      "https://drive.google.com/file/d/1BaBD5qYTqsqZSPhij46ubFYKYSix9aqT/view?usp=sharing",
       "_blank"
     );
   };
@@ -66,47 +72,62 @@ export default function Home() {
   return (
     <div id="home" ref={ref} style={{ height: "100vh" }}>
       <Container maxWidth="xl" sx={ContainerStyle}>
-        <Box sx={{ p: 2 }}>
-          <Stack direction="row" alignItems="center" justifyContent={"center"}>
-            <Stack direction="column" alignItems="center">
-              <Typography variant="h5" alignItems="center" color="white">
-                Hello I'm
-              </Typography>
-              <Typography variant="h4" alignItems="center" color="white">
-                Heshan Madhuranga
-              </Typography>
-              <Typography variant="h5" alignItems="center" color="white">
-                Fullstack Developer
-              </Typography>
-            </Stack>
-          </Stack>
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="show"
+          exit="exit"
+        >
+          <Box sx={{ p: 2 }}>
+            <motion.div variants={item}>
+              <Stack
+                direction="row"
+                alignItems="center"
+                justifyContent={"center"}
+              >
+                <Stack direction="column" alignItems="center">
+                  <Typography variant="h5" alignItems="center" color="white">
+                    Hello I'm
+                  </Typography>
+                  <Typography variant="h4" alignItems="center" color="white">
+                    Heshan Madhuranga
+                  </Typography>
+                  <Typography variant="h5" alignItems="center" color="white">
+                    Fullstack Developer
+                  </Typography>
+                </Stack>
+              </Stack>
+            </motion.div>
+            <motion.div variants={item}>
+              <Stack
+                direction="row"
+                justifyContent="center"
+                spacing={5}
+                sx={{ marginTop: "40px" }}
+              >
+                <Button
+                  variant="outlined"
+                  color="primary"
+                  onClick={handleDownlaod}
+                >
+                  Download CV
+                </Button>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={handleOnClick}
+                >
+                  Let's Talk
+                </Button>
+              </Stack>
+            </motion.div>
 
-          <Stack
-            direction="row"
-            justifyContent="center"
-            spacing={5}
-            sx={{ marginTop: "40px" }}
-          >
-            <Button variant="outlined" color="primary" onClick={handleDownlaod}>
-              Download CV
-            </Button>
-            <Button variant="contained" color="primary" onClick={handleOnClick}>
-              Let's Talk
-            </Button>
-          </Stack>
-
-          <motion.div
-            animate={{ opacity: 1 }}
-            transition={{ duration: 3, times: [0, 0.2, 1] }}
-            style={{ opacity: "0" }}
-          >
             <Stack
               direction={matches === true ? "row" : "column"}
               sx={[
                 {
                   position: "absolute",
                   bottom: "0",
-                  opacity: "1",
                   justifyContent: "center",
                   marginBottom: "100px",
                   marginLeft: "100px",
@@ -123,26 +144,31 @@ export default function Home() {
               {SocialMedia &&
                 SocialMedia.map((value, index) => {
                   return (
-                    <CustomeIconButton
-                      key={index}
-                      Icon={value.icon}
-                      url={value.url}
-                      label={value.label}
-                      isScoial={false}
-                    />
+                    <motion.div variants={itemBtn}>
+                      <CustomeIconButton
+                        key={index}
+                        Icon={value.icon}
+                        url={value.url}
+                        label={value.label}
+                        isScoial={false}
+                      />
+                    </motion.div>
                   );
                 })}
             </Stack>
-          </motion.div>
-          <Stack direction="row" justifyContent="center">
-            <img
-              src={logo}
-              alt="mainlogo"
-              width={matches === true ? "60%" : "24%"}
-              style={{ position: "absolute", bottom: "0" }}
-            />
-          </Stack>
-        </Box>
+
+            <motion.div variants={itemLogo}>
+              <Stack direction="row" justifyContent="center">
+                <img
+                  src={logo}
+                  alt="mainlogo"
+                  width={matches === true ? "60%" : "24%"}
+                  style={{ position: "absolute", bottom: "0" }}
+                />
+              </Stack>
+            </motion.div>
+          </Box>
+        </motion.div>
         <Box
           sx={{
             position: "fixed",
@@ -205,7 +231,7 @@ export default function Home() {
                     default: "bounce",
                   },
                   random: false,
-                  speed: 6,
+                  speed: 3,
                   straight: false,
                 },
                 number: {
@@ -216,7 +242,7 @@ export default function Home() {
                   value: 80,
                 },
                 opacity: {
-                  value: 0.5,
+                  value: 1,
                 },
                 shape: {
                   type: "circle",

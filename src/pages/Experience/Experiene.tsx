@@ -5,14 +5,30 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import ExperienceCom from "../../components/ExperienceCom/ExperienceCom";
 
 const webdev = [
-  { icon: <CheckCircleIcon />, title: "Html", subTitle: "Check" },
-  { icon: <CheckCircleIcon />, title: "Css", subTitle: "Check" },
-  { icon: <CheckCircleIcon />, title: "Javascript", subTitle: "Check" },
-  { icon: <CheckCircleIcon />, title: "Tailwind", subTitle: "Check" },
-  { icon: <CheckCircleIcon />, title: "React", subTitle: "Check" },
-  { icon: <CheckCircleIcon />, title: "Matrial Ui", subTitle: "Check" },
-  { icon: <CheckCircleIcon />, title: "Boostrap", subTitle: "Check" },
-  { icon: <CheckCircleIcon />, title: "Next.js", subTitle: "Check" },
+  { icon: <CheckCircleIcon />, title: "Html", subTitle: "Experienced" },
+  { icon: <CheckCircleIcon />, title: "Css", subTitle: "Experienced" },
+  { icon: <CheckCircleIcon />, title: "Javascript", subTitle: "Experienced" },
+  { icon: <CheckCircleIcon />, title: "Tailwind", subTitle: "Beginner" },
+  { icon: <CheckCircleIcon />, title: "React", subTitle: "Experienced" },
+  { icon: <CheckCircleIcon />, title: "Matrial Ui", subTitle: "Experienced" },
+  { icon: <CheckCircleIcon />, title: "Boostrap", subTitle: "Experienced" },
+  { icon: <CheckCircleIcon />, title: "TypeScript", subTitle: "Intermediate" },
+];
+
+const mobiledev = [
+  { icon: <CheckCircleIcon />, title: "Java", subTitle: "Experienced" },
+  { icon: <CheckCircleIcon />, title: "Kotlin", subTitle: "Intermediate" },
+  { icon: <CheckCircleIcon />, title: "Flutter", subTitle: "intermediate" },
+  { icon: <CheckCircleIcon />, title: "Dart", subTitle: "intermediate" },
+];
+
+const backenddev = [
+  { icon: <CheckCircleIcon />, title: "Nodejs", subTitle: "Intermediate" },
+  { icon: <CheckCircleIcon />, title: "Sql", subTitle: "Experienced" },
+  { icon: <CheckCircleIcon />, title: "MongoDB", subTitle: "Intermediate" },
+  { icon: <CheckCircleIcon />, title: "Firebase", subTitle: "Experienced" },
+  { icon: <CheckCircleIcon />, title: "Servlet", subTitle: "Intermediate" },
+  { icon: <CheckCircleIcon />, title: "Php", subTitle: "Intermediate" },
 ];
 
 export default function Experience() {
@@ -75,7 +91,7 @@ export default function Experience() {
                   sx={{ marginBottom: "10px" }}
                   color={"white"}
                 >
-                  Web Development
+                  Mobile Application Development
                 </Typography>
               </Stack>
               <Box
@@ -88,7 +104,7 @@ export default function Experience() {
                 }}
               >
                 <Grid container>
-                  {webdev.map((value, index) => {
+                  {mobiledev.map((value, index) => {
                     return (
                       <Grid item key={index} xs={6} md={6}>
                         <Box
@@ -120,7 +136,7 @@ export default function Experience() {
                   sx={{ marginBottom: "10px" }}
                   color={"white"}
                 >
-                  Web Development
+                  Backend Development and DataBases
                 </Typography>
               </Stack>
               <Box
@@ -133,7 +149,7 @@ export default function Experience() {
                 }}
               >
                 <Grid container>
-                  {webdev.map((value, index) => {
+                  {backenddev.map((value, index) => {
                     return (
                       <Grid item key={index} xs={6} md={6}>
                         <Box

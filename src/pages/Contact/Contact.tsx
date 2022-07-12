@@ -38,40 +38,79 @@ const details = [
   },
 ];
 
+const initialValues = {
+  name: "",
+  email: "",
+  message: "",
+};
+
 export default function Contact() {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   const form = useRef<HTMLFormElement>(null);
   const [isLoading, SetIsloading] = useState(false);
   const [openDialog, SetOpenDialog] = useState(false);
+  const [values, setValues] = useState(initialValues);
+  const [errors, setErrors] = useState(initialValues);
   const handleClose = () => {
     SetOpenDialog(false);
   };
+  //error handle
+  const validate = () => {
+    let temp = {
+      email: "",
+      name: "",
+      message: "",
+    };
+    temp.email =
+      (/$^|.+@.+..+/.test(values.email) ? "" : "Email is Not Valid") ||
+      (values.email ? "" : "Email is Required");
+    temp.name = values.name ? "" : "Name Required";
+    temp.message = values.message ? "" : "Message Required";
 
+    setErrors({
+      ...temp,
+    });
+    console.log(errors);
+    return Object.values(temp).every((x) => x == "");
+  };
   const handleonSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    SetIsloading(true);
-    console.log(event.currentTarget.reset());
-    emailjs
-      .sendForm(
-        "service_suyhqmn",
-        "template_0dm5myj",
-        form.current!,
-        "ZWu0LhV2SC4nADpjb"
-      )
-      .then(
-        (result: any) => {
-          console.log(result);
-          form.current?.reset();
-          SetIsloading(false);
-          SetOpenDialog(true);
-        },
-        (error: any) => {
-          console.log(error.text);
-          SetIsloading(false);
-        }
-      );
+
+    if (validate()) {
+      SetIsloading(true);
+      console.log(event.currentTarget.reset());
+      emailjs
+        .sendForm(
+          "service_suyhqmn",
+          "template_0dm5myj",
+          form.current!,
+          "ZWu0LhV2SC4nADpjb"
+        )
+        .then(
+          (result: any) => {
+            console.log(result);
+            form.current?.reset();
+            SetIsloading(false);
+            SetOpenDialog(true);
+            setValues(initialValues);
+          },
+          (error: any) => {
+            console.log(error.text);
+            SetIsloading(false);
+          }
+        );
+    }
   };
+
+  const handleChanges = (e: any) => {
+    const { name, value } = e.target;
+    setValues({
+      ...values,
+      [name]: value,
+    });
+  };
+
   return (
     <div id="contact" style={{ backgroundColor: "#070B2E", padding: "50px" }}>
       <Container maxWidth="lg">
@@ -106,22 +145,31 @@ export default function Contact() {
                   label="Your Full Name"
                   color="primary"
                   name="name"
+                  onChange={handleChanges}
                   fullWidth
                   focused
+                  helperText={errors.name}
+                  error={errors.name ? true : false}
                 />
                 <TextField
                   id="outlined-uncontrolled"
                   label="Your Email"
                   name="email"
+                  onChange={handleChanges}
+                  error={errors.email ? true : false}
+                  helperText={errors.email}
                   focused
                 />
                 <TextField
                   id="outlined-name"
                   label="Your Message"
                   name="message"
+                  onChange={handleChanges}
                   multiline
                   rows={10}
+                  error={errors.message ? true : false}
                   focused
+                  helperText={errors.message}
                 />
                 <LoadingButton
                   size="large"
