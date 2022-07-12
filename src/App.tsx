@@ -21,6 +21,7 @@ import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { motion } from "framer-motion";
 import { useInView, InView } from "react-intersection-observer";
 import { useState } from "react";
+
 function App() {
   const { inView: View } = useInView();
   const [value, setValue] = useState(false);
@@ -63,6 +64,7 @@ function App() {
       right: 25,
     },
   ];
+
   return (
     <div>
       <ThemeProvider theme={theme}>
