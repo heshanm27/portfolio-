@@ -37,3 +37,54 @@ body::-webkit-scrollbar-thumb {
   background-color: rgb(52, 54, 193);
   outline: 1px solid rgb(68, 126, 185);
 }
+
+.anim {
+  opacity: 1;
+  animation-name: example;
+  animation-duration: 2s;
+}
+.animOut {
+  opacity: 0;
+}
+.anim:nth-of-type(2) {
+  transition-delay: 0.025s;
+}
+.anim:nth-of-type(3) {
+  transition-delay: calc(0.025s * 2);
+}
+.anim:nth-of-type(4) {
+  transition-delay: calc(0.025s * 3);
+}
+.anim:nth-of-type(5) {
+  transition-delay: calc(0.025s * 4);
+}
+
+@keyframes example {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.Menu__link {
+  opacity: 1;
+  transition-duration: 2s;
+  transition-timing-function: ease-in;
+  transition-property: opacity;
+}
+
+.Menu.is-open .Menu__link {
+  opacity: 0;
+}
+
+.Menu__link:nth-of-type(2) {
+  transition-delay: 1s;
+}
+.Menu__link:nth-of-type(3) {
+  transition-delay: calc(1s * 2);
+}
+.Menu__link:nth-of-type(4) {
+  transition-delay: calc(1s * 3);
+}
