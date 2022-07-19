@@ -79,7 +79,7 @@ export default function Contact() {
 
     if (validate()) {
       SetIsloading(true);
-      console.log(event.currentTarget.reset());
+      console.log(form.current);
       emailjs
         .sendForm(
           "service_suyhqmn",

@@ -30,6 +30,16 @@ const backenddev = [
   { icon: <CheckCircleIcon />, title: "Servlet", subTitle: "Intermediate" },
   { icon: <CheckCircleIcon />, title: "Php", subTitle: "Intermediate" },
 ];
+const clouddev = [
+  { icon: <CheckCircleIcon />, title: "AWS Amplify", subTitle: "Beginner" },
+  { icon: <CheckCircleIcon />, title: "AWS S3", subTitle: "Beginner" },
+  { icon: <CheckCircleIcon />, title: "AWS Lamda", subTitle: "Beginner" },
+  {
+    icon: <CheckCircleIcon />,
+    title: "Google Cloud API",
+    subTitle: "Intermediate",
+  },
+];
 
 export default function Experience() {
   return (
@@ -91,7 +101,7 @@ export default function Experience() {
                   sx={{ marginBottom: "10px" }}
                   color={"white"}
                 >
-                  Mobile Application Development
+                  Backend Development and DataBases
                 </Typography>
               </Stack>
               <Box
@@ -104,7 +114,7 @@ export default function Experience() {
                 }}
               >
                 <Grid container>
-                  {mobiledev.map((value, index) => {
+                  {backenddev.map((value, index) => {
                     return (
                       <Grid item key={index} xs={6} md={6}>
                         <Box
@@ -136,7 +146,7 @@ export default function Experience() {
                   sx={{ marginBottom: "10px" }}
                   color={"white"}
                 >
-                  Backend Development and DataBases
+                  Mobile Application Development
                 </Typography>
               </Stack>
               <Box
@@ -149,7 +159,52 @@ export default function Experience() {
                 }}
               >
                 <Grid container>
-                  {backenddev.map((value, index) => {
+                  {mobiledev.map((value, index) => {
+                    return (
+                      <Grid item key={index} xs={6} md={6}>
+                        <Box
+                          sx={{
+                            color: "white",
+                            justifyContent: "center",
+                            alignContent: "center",
+                            textAlign: "center",
+                            padding: "10px 10px 10px 20px",
+                          }}
+                        >
+                          <ExperienceCom
+                            Icon={value.icon}
+                            Title={value.title}
+                            SubTitle={value.subTitle}
+                          />
+                        </Box>
+                      </Grid>
+                    );
+                  })}
+                </Grid>
+              </Box>
+            </Grid>
+
+            <Grid item xs={12} md={6}>
+              <Stack direction="row" justifyContent="center">
+                <Typography
+                  variant="h5"
+                  sx={{ marginBottom: "10px" }}
+                  color={"white"}
+                >
+                  Cloud Platform Services
+                </Typography>
+              </Stack>
+              <Box
+                sx={{
+                  border: "1px solid #40C4FF",
+                  padding: "20px",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <Grid container>
+                  {clouddev.map((value, index) => {
                     return (
                       <Grid item key={index} xs={6} md={6}>
                         <Box

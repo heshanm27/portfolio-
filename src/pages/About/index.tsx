@@ -55,7 +55,11 @@ export default function About() {
                 student at the Sri Lanka Institute of Information Technology in
                 the Faculty of Computing. I'm currently working on my academic
                 work , side projects and also looking for an internship to build
-                up my skills and choose my career path.
+                up my skills and choose my career path. I'm familiar with
+                various programming languages like Java, C, C++, Python,
+                ReactJs, JavaScript, TypeScript, Flutter, HTML, CSS, and
+                Tailwind, and I'm experienced in version control and team
+                collaboration with git.
               </Typography>
             </Box>
             <Stack direction="row" justifyContent="center">

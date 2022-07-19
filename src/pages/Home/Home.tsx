@@ -53,7 +53,7 @@ export default function Home() {
 
   const handleDownlaod = () => {
     window.open(
-      "https://drive.google.com/file/d/1BaBD5qYTqsqZSPhij46ubFYKYSix9aqT/view?usp=sharing",
+      "https://drive.google.com/file/d/1dlzUCKvU3PWk7_8bHYYyw36xSDemUPkp/view?usp=sharing",
       "_blank"
     );
   };

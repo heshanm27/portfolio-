@@ -38,7 +38,6 @@ export default function CustomeDialog(props: prop) {
     <Dialog
       open={props.Open}
       TransitionComponent={Transition}
-      fullScreen={fullScreen}
       keepMounted
       onClose={props.handleClose}
       aria-describedby="alert-dialog-slide-description"
