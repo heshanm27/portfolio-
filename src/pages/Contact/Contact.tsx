@@ -16,7 +16,8 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import SendIcon from "@mui/icons-material/Send";
 import { LoadingButton } from "@mui/lab";
 import CustomeDialog from "../../components/CustomeDialog/CustomeDialog";
-
+import { motion } from "framer-motion";
+import { container, item } from "../../components/Animations/Animations";
 const details = [
   {
     Icon: <EmailIcon />,
@@ -114,87 +115,101 @@ export default function Contact() {
   return (
     <div id="contact" style={{ backgroundColor: "#070B2E", padding: "50px" }}>
       <Container maxWidth="lg">
-        <Titles mainTitle="Contact Me" subTitle="Get in touch" />
-
-        <Stack
-          direction={matches === true ? "column-reverse" : "row"}
-          justifyContent="space-around"
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: true, amount: 0.5 }}
+          exit="exit"
         >
-          <Stack direction="column" spacing={2}>
-            {details.map((value, index) => {
-              return (
-                <ContactCard
-                  Icon={value.Icon}
-                  Connactinfo={value.Connactinfo}
-                  ContactMethod={value.ContactMethod}
-                  url={value.url}
-                  key={index}
-                />
-              );
-            })}
-          </Stack>
+          <motion.div variants={item}>
+            <Titles mainTitle="Contact Me" subTitle="Get in touch" />
+          </motion.div>
 
-          <Box
-            width={matches === true ? "100%" : "50%"}
-            sx={{ paddingBottom: "20px" }}
+          <Stack
+            direction={matches === true ? "column-reverse" : "row"}
+            justifyContent="space-around"
           >
-            <form ref={form} onSubmit={handleonSubmit}>
-              <Stack direction="column" spacing={5} sx={{ color: "white" }}>
-                <TextField
-                  id="outlined-name"
-                  label="Your Full Name"
-                  color="primary"
-                  name="name"
-                  onChange={handleChanges}
-                  fullWidth
-                  focused
-                  helperText={errors.name}
-                  error={errors.name ? true : false}
-                />
-                <TextField
-                  id="outlined-uncontrolled"
-                  label="Your Email"
-                  name="email"
-                  onChange={handleChanges}
-                  error={errors.email ? true : false}
-                  helperText={errors.email}
-                  focused
-                />
-                <TextField
-                  id="outlined-name"
-                  label="Your Message"
-                  name="message"
-                  onChange={handleChanges}
-                  multiline
-                  rows={10}
-                  error={errors.message ? true : false}
-                  focused
-                  helperText={errors.message}
-                />
-                <LoadingButton
-                  size="large"
-                  fullWidth={false}
-                  loading={isLoading}
-                  variant="contained"
-                  type="submit"
-                  color="primary"
-                  loadingIndicator={
-                    <CircularProgress color="primary" size={16} />
-                  }
-                >
-                  Send Message
-                </LoadingButton>
-              </Stack>
-            </form>
-          </Box>
-          <CustomeDialog
-            Open={openDialog}
-            handleClose={handleClose}
-            ButtonText="OK"
-            DialogText="I will reply you as soon as possible"
-            DialogTitle="Thank you reaching me out!"
-          />
-        </Stack>
+            <Stack direction="column" spacing={2}>
+              {details.map((value, index) => {
+                return (
+                  <motion.div variants={item}>
+                    <ContactCard
+                      Icon={value.Icon}
+                      Connactinfo={value.Connactinfo}
+                      ContactMethod={value.ContactMethod}
+                      url={value.url}
+                      key={index}
+                    />
+                  </motion.div>
+                );
+              })}
+            </Stack>
+
+            <Box
+              width={matches === true ? "100%" : "50%"}
+              sx={{ paddingBottom: "20px" }}
+            >
+              <motion.div variants={item}>
+                <form ref={form} onSubmit={handleonSubmit}>
+                  <Stack direction="column" spacing={5} sx={{ color: "white" }}>
+                    <TextField
+                      id="outlined-name"
+                      label="Your Full Name"
+                      color="primary"
+                      name="name"
+                      onChange={handleChanges}
+                      fullWidth
+                      focused
+                      helperText={errors.name}
+                      error={errors.name ? true : false}
+                    />
+                    <TextField
+                      id="outlined-uncontrolled"
+                      label="Your Email"
+                      name="email"
+                      onChange={handleChanges}
+                      error={errors.email ? true : false}
+                      helperText={errors.email}
+                      focused
+                    />
+                    <TextField
+                      id="outlined-name"
+                      label="Your Message"
+                      name="message"
+                      onChange={handleChanges}
+                      multiline
+                      rows={10}
+                      error={errors.message ? true : false}
+                      focused
+                      helperText={errors.message}
+                    />
+                    <LoadingButton
+                      size="large"
+                      fullWidth={false}
+                      loading={isLoading}
+                      variant="contained"
+                      type="submit"
+                      color="primary"
+                      loadingIndicator={
+                        <CircularProgress color="primary" size={16} />
+                      }
+                    >
+                      Send Message
+                    </LoadingButton>
+                  </Stack>
+                </form>
+              </motion.div>
+            </Box>
+            <CustomeDialog
+              Open={openDialog}
+              handleClose={handleClose}
+              ButtonText="OK"
+              DialogText="I will reply you as soon as possible"
+              DialogTitle="Thank you reaching me out!"
+            />
+          </Stack>
+        </motion.div>
       </Container>
     </div>
   );

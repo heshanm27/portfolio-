@@ -2,8 +2,10 @@ import { Box, Container, Grid, Stack, Typography } from "@mui/material";
 
 import Titles from "../../components/Titles/Titles";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import ExperienceCom from "../../components/ExperienceCom/ExperienceCom";
 
+import ExperienceCom from "../../components/ExperienceCom/ExperienceCom";
+import { motion } from "framer-motion";
+import { container, item } from "../../components/Animations/Animations";
 const webdev = [
   { icon: <CheckCircleIcon />, title: "Html", subTitle: "Experienced" },
   { icon: <CheckCircleIcon />, title: "Css", subTitle: "Experienced" },
@@ -45,191 +47,208 @@ export default function Experience() {
   return (
     <div id="experience" style={{ backgroundColor: "#070B2E" }}>
       <Container maxWidth="xl">
-        <Box>
-          <Titles mainTitle="My Experience" subTitle="what skills I have" />
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: true, amount: 0.5 }}
+          exit="exit"
+        >
+          <Box>
+            <motion.div variants={item}>
+              <Titles mainTitle="My Experience" subTitle="what skills I have" />
+            </motion.div>
+            <Grid container spacing={3} sx={{ justifyContent: "center" }}>
+              <Grid item xs={12} md={6}>
+                <motion.div variants={item}>
+                  <Stack direction="row" justifyContent="center">
+                    <Typography
+                      variant="h5"
+                      sx={{ marginBottom: "10px" }}
+                      color={"white"}
+                    >
+                      Web Development
+                    </Typography>
+                  </Stack>
+                  <Box
+                    sx={{
+                      border: "1px solid #40C4FF",
+                      padding: "20px",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Grid container>
+                      {webdev.map((value, index) => {
+                        return (
+                          <Grid item key={index} xs={6} md={6}>
+                            <Box
+                              sx={{
+                                color: "white",
+                                justifyContent: "center",
+                                alignContent: "center",
+                                textAlign: "center",
+                                padding: "10px 10px 10px 20px",
+                              }}
+                            >
+                              <ExperienceCom
+                                Icon={value.icon}
+                                Title={value.title}
+                                SubTitle={value.subTitle}
+                                key={index}
+                              />
+                            </Box>
+                          </Grid>
+                        );
+                      })}
+                    </Grid>
+                  </Box>
+                </motion.div>
+              </Grid>
 
-          <Grid container spacing={3} sx={{ justifyContent: "center" }}>
-            <Grid item xs={12} md={6}>
-              <Stack direction="row" justifyContent="center">
-                <Typography
-                  variant="h5"
-                  sx={{ marginBottom: "10px" }}
-                  color={"white"}
-                >
-                  Web Development
-                </Typography>
-              </Stack>
-              <Box
-                sx={{
-                  border: "1px solid #40C4FF",
-                  padding: "20px",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <Grid container>
-                  {webdev.map((value, index) => {
-                    return (
-                      <Grid item key={index} xs={6} md={6}>
-                        <Box
-                          sx={{
-                            color: "white",
-                            justifyContent: "center",
-                            alignContent: "center",
-                            textAlign: "center",
-                            padding: "10px 10px 10px 20px",
-                          }}
-                        >
-                          <ExperienceCom
-                            Icon={value.icon}
-                            Title={value.title}
-                            SubTitle={value.subTitle}
-                            key={index}
-                          />
-                        </Box>
-                      </Grid>
-                    );
-                  })}
-                </Grid>
-              </Box>
+              <Grid item xs={12} md={6}>
+                <motion.div variants={item}>
+                  <Stack direction="row" justifyContent="center">
+                    <Typography
+                      variant="h5"
+                      sx={{ marginBottom: "10px" }}
+                      color={"white"}
+                    >
+                      Backend Development and DataBases
+                    </Typography>
+                  </Stack>
+                  <Box
+                    sx={{
+                      border: "1px solid #40C4FF",
+                      padding: "20px",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Grid container>
+                      {backenddev.map((value, index) => {
+                        return (
+                          <Grid item key={index} xs={6} md={6}>
+                            <Box
+                              sx={{
+                                color: "white",
+                                justifyContent: "center",
+                                alignContent: "center",
+                                textAlign: "center",
+                                padding: "10px 10px 10px 20px",
+                              }}
+                            >
+                              <ExperienceCom
+                                Icon={value.icon}
+                                Title={value.title}
+                                SubTitle={value.subTitle}
+                                key={index}
+                              />
+                            </Box>
+                          </Grid>
+                        );
+                      })}
+                    </Grid>
+                  </Box>
+                </motion.div>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <motion.div variants={item}>
+                  <Stack direction="row" justifyContent="center">
+                    <Typography
+                      variant="h5"
+                      sx={{ marginBottom: "10px" }}
+                      color={"white"}
+                    >
+                      Mobile Application Development
+                    </Typography>
+                  </Stack>
+                  <Box
+                    sx={{
+                      border: "1px solid #40C4FF",
+                      padding: "20px",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Grid container>
+                      {mobiledev.map((value, index) => {
+                        return (
+                          <Grid item key={index} xs={6} md={6}>
+                            <Box
+                              sx={{
+                                color: "white",
+                                justifyContent: "center",
+                                alignContent: "center",
+                                textAlign: "center",
+                                padding: "10px 10px 10px 20px",
+                              }}
+                            >
+                              <ExperienceCom
+                                Icon={value.icon}
+                                Title={value.title}
+                                SubTitle={value.subTitle}
+                              />
+                            </Box>
+                          </Grid>
+                        );
+                      })}
+                    </Grid>
+                  </Box>
+                </motion.div>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <motion.div variants={item}>
+                  <Stack direction="row" justifyContent="center">
+                    <Typography
+                      variant="h5"
+                      sx={{ marginBottom: "10px" }}
+                      color={"white"}
+                    >
+                      Cloud Platform Services
+                    </Typography>
+                  </Stack>
+                  <Box
+                    sx={{
+                      border: "1px solid #40C4FF",
+                      padding: "20px",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Grid container>
+                      {clouddev.map((value, index) => {
+                        return (
+                          <Grid item key={index} xs={6} md={6}>
+                            <Box
+                              sx={{
+                                color: "white",
+                                justifyContent: "center",
+                                alignContent: "center",
+                                textAlign: "center",
+                                padding: "10px 10px 10px 20px",
+                              }}
+                            >
+                              <ExperienceCom
+                                Icon={value.icon}
+                                Title={value.title}
+                                SubTitle={value.subTitle}
+                              />
+                            </Box>
+                          </Grid>
+                        );
+                      })}
+                    </Grid>
+                  </Box>
+                </motion.div>
+              </Grid>
             </Grid>
-            <Grid item xs={12} md={6}>
-              <Stack direction="row" justifyContent="center">
-                <Typography
-                  variant="h5"
-                  sx={{ marginBottom: "10px" }}
-                  color={"white"}
-                >
-                  Backend Development and DataBases
-                </Typography>
-              </Stack>
-              <Box
-                sx={{
-                  border: "1px solid #40C4FF",
-                  padding: "20px",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <Grid container>
-                  {backenddev.map((value, index) => {
-                    return (
-                      <Grid item key={index} xs={6} md={6}>
-                        <Box
-                          sx={{
-                            color: "white",
-                            justifyContent: "center",
-                            alignContent: "center",
-                            textAlign: "center",
-                            padding: "10px 10px 10px 20px",
-                          }}
-                        >
-                          <ExperienceCom
-                            Icon={value.icon}
-                            Title={value.title}
-                            SubTitle={value.subTitle}
-                            key={index}
-                          />
-                        </Box>
-                      </Grid>
-                    );
-                  })}
-                </Grid>
-              </Box>
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <Stack direction="row" justifyContent="center">
-                <Typography
-                  variant="h5"
-                  sx={{ marginBottom: "10px" }}
-                  color={"white"}
-                >
-                  Mobile Application Development
-                </Typography>
-              </Stack>
-              <Box
-                sx={{
-                  border: "1px solid #40C4FF",
-                  padding: "20px",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <Grid container>
-                  {mobiledev.map((value, index) => {
-                    return (
-                      <Grid item key={index} xs={6} md={6}>
-                        <Box
-                          sx={{
-                            color: "white",
-                            justifyContent: "center",
-                            alignContent: "center",
-                            textAlign: "center",
-                            padding: "10px 10px 10px 20px",
-                          }}
-                        >
-                          <ExperienceCom
-                            Icon={value.icon}
-                            Title={value.title}
-                            SubTitle={value.subTitle}
-                          />
-                        </Box>
-                      </Grid>
-                    );
-                  })}
-                </Grid>
-              </Box>
-            </Grid>
-
-            <Grid item xs={12} md={6}>
-              <Stack direction="row" justifyContent="center">
-                <Typography
-                  variant="h5"
-                  sx={{ marginBottom: "10px" }}
-                  color={"white"}
-                >
-                  Cloud Platform Services
-                </Typography>
-              </Stack>
-              <Box
-                sx={{
-                  border: "1px solid #40C4FF",
-                  padding: "20px",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <Grid container>
-                  {clouddev.map((value, index) => {
-                    return (
-                      <Grid item key={index} xs={6} md={6}>
-                        <Box
-                          sx={{
-                            color: "white",
-                            justifyContent: "center",
-                            alignContent: "center",
-                            textAlign: "center",
-                            padding: "10px 10px 10px 20px",
-                          }}
-                        >
-                          <ExperienceCom
-                            Icon={value.icon}
-                            Title={value.title}
-                            SubTitle={value.subTitle}
-                          />
-                        </Box>
-                      </Grid>
-                    );
-                  })}
-                </Grid>
-              </Box>
-            </Grid>
-          </Grid>
-        </Box>
+          </Box>
+        </motion.div>
       </Container>
     </div>
   );

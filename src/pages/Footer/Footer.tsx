@@ -10,6 +10,12 @@ import CustomeIconButton from "../../components/IconButton/CustomeIconButton";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
+import { motion } from "framer-motion";
+import {
+  container,
+  item,
+  itemBtn,
+} from "../../components/Animations/Animations";
 const navArray = [
   {
     url: "#",
@@ -69,55 +75,72 @@ export default function Footer() {
       }}
     >
       <Container>
-        <Typography align="center" variant="h2">
-          Devprotfolio
-        </Typography>
-        <Stack
-          direction={matches === true ? "column" : "row"}
-          justifyContent="center"
-          alignItems={"center"}
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: true, amount: 0.5 }}
+          exit="exit"
         >
-          {navArray.map((nav) => {
-            return (
-              <Link
-                variant="h6"
-                color="black"
-                underline="hover"
-                href={nav.url}
-                sx={{ padding: "10px" }}
-              >
-                {nav.label}
-              </Link>
-            );
-          })}
-        </Stack>
-        <Stack
-          direction="row"
-          justifyContent="center"
-          alignItems={"center"}
-          spacing={2}
-        >
-          {socialBtnArr.map((social) => {
-            return (
-              <CustomeIconButton
-                Icon={social.Icon}
-                label={social.label}
-                url={social.url}
-                isScoial={true}
-              />
-            );
-          })}
-        </Stack>
-        <Typography
-          sx={{ paddingTop: "10px" }}
-          variant="body2"
-          color="textSecondary"
-          align="center"
-        >
-          {"Copyright © "}
-          <Link color="inherit">devprotfolio</Link> {new Date().getFullYear()}
-          {"."}
-        </Typography>
+          <motion.div variants={item}>
+            <Typography align="center" variant="h2">
+              Devprotfolio
+            </Typography>
+          </motion.div>
+          <motion.div variants={item}>
+            <Stack
+              direction={matches === true ? "column" : "row"}
+              justifyContent="center"
+              alignItems={"center"}
+            >
+              {navArray.map((nav) => {
+                return (
+                  <Link
+                    variant="h6"
+                    color="black"
+                    underline="hover"
+                    href={nav.url}
+                    sx={{ padding: "10px" }}
+                  >
+                    {nav.label}
+                  </Link>
+                );
+              })}
+            </Stack>
+          </motion.div>
+          <Stack
+            direction="row"
+            justifyContent="center"
+            alignItems={"center"}
+            spacing={2}
+          >
+            {socialBtnArr.map((social) => {
+              return (
+                <motion.div variants={itemBtn}>
+                  <CustomeIconButton
+                    Icon={social.Icon}
+                    label={social.label}
+                    url={social.url}
+                    isScoial={true}
+                  />
+                </motion.div>
+              );
+            })}
+          </Stack>
+          <motion.div variants={item}>
+            <Typography
+              sx={{ paddingTop: "10px" }}
+              variant="body2"
+              color="textSecondary"
+              align="center"
+            >
+              {"Copyright © "}
+              <Link color="inherit">devprotfolio</Link>{" "}
+              {new Date().getFullYear()}
+              {"."}
+            </Typography>
+          </motion.div>
+        </motion.div>
       </Container>
     </div>
   );

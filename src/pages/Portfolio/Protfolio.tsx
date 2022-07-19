@@ -1,7 +1,8 @@
 import { Box, Container, Grid, useTheme } from "@mui/material";
 import CustomeCard from "../../components/CustomeCard/CustomeCard";
 import Titles from "../../components/Titles/Titles";
-
+import { motion } from "framer-motion";
+import { container, item } from "../../components/Animations/Animations";
 export default function Protfolio() {
   const theme = useTheme();
   const DataList = [
@@ -46,35 +47,46 @@ export default function Protfolio() {
       }}
     >
       <Container maxWidth="lg">
-        <Titles mainTitle="Portfolio" subTitle="My Recent Work" />
-
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignContent: "end",
-            justifyContent: "center",
-            alignItems: "end",
-            padding: theme.spacing(2),
-          }}
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: true, amount: 0.5 }}
+          exit="exit"
         >
-          <Box>
-            <Grid container>
-              {DataList.map((value, index) => {
-                return (
-                  <Grid xs={12} md={4} sx={{ padding: "20px" }} key={index}>
-                    <CustomeCard
-                      title={value.title}
-                      url={value.url}
-                      chips={value.chips}
-                      img={value.img}
-                    />
-                  </Grid>
-                );
-              })}
-            </Grid>
+          <motion.div variants={item}>
+            <Titles mainTitle="Portfolio" subTitle="My Recent Work" />
+          </motion.div>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignContent: "end",
+              justifyContent: "center",
+              alignItems: "end",
+              padding: theme.spacing(2),
+            }}
+          >
+            <Box>
+              <Grid container>
+                {DataList.map((value, index) => {
+                  return (
+                    <Grid xs={12} md={4} sx={{ padding: "20px" }} key={index}>
+                      <motion.div variants={item} whileHover={{ scale: 1.2 }}>
+                        <CustomeCard
+                          title={value.title}
+                          url={value.url}
+                          chips={value.chips}
+                          img={value.img}
+                        />
+                      </motion.div>
+                    </Grid>
+                  );
+                })}
+              </Grid>
+            </Box>
           </Box>
-        </Box>
+        </motion.div>
       </Container>
     </div>
   );

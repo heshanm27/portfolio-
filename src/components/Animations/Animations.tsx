@@ -18,6 +18,26 @@ export const item = {
   },
 };
 
+export const griditem = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+
+    transition: {
+      ease: [0.6, 0.01, -0.05, 0.95],
+      duration: 1.6,
+    },
+  },
+  exit: {
+    opacity: 0,
+
+    transition: {
+      ease: "easeInOut",
+      duration: 0.8,
+    },
+  },
+};
+
 //anmation for iconbutton
 export const itemBtn = {
   hidden: { opacity: 0, y: 200 },
@@ -36,7 +56,7 @@ export const itemBtn = {
     opacity: 0,
     y: -200,
     transition: {
-      ease: "easeInOut",
+      ease: "backOut",
       duration: 0.8,
     },
   },
