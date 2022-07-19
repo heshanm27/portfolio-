@@ -119,7 +119,7 @@ export default function Contact() {
           variants={container}
           initial="hidden"
           whileInView={"show"}
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ once: false, amount: matches ? 0.2 : 0.5 }}
           exit="exit"
         >
           <motion.div variants={item}>

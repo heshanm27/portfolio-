@@ -1,10 +1,11 @@
-import { Box, Container, Grid, useTheme } from "@mui/material";
+import { Box, Container, Grid, useMediaQuery, useTheme } from "@mui/material";
 import CustomeCard from "../../components/CustomeCard/CustomeCard";
 import Titles from "../../components/Titles/Titles";
 import { motion } from "framer-motion";
 import { container, item } from "../../components/Animations/Animations";
 export default function Protfolio() {
   const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("md"));
   const DataList = [
     {
       url: "https://github.com/heshanm27/portfolio-",
@@ -51,7 +52,7 @@ export default function Protfolio() {
           variants={container}
           initial="hidden"
           whileInView={"show"}
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ once: false, amount: matches ? 0.2 : 0.5 }}
           exit="exit"
         >
           <motion.div variants={item}>

@@ -1,4 +1,12 @@
-import { Box, Container, Grid, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Container,
+  Grid,
+  Stack,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 
 import Titles from "../../components/Titles/Titles";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
@@ -44,6 +52,8 @@ const clouddev = [
 ];
 
 export default function Experience() {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <div id="experience" style={{ backgroundColor: "#070B2E" }}>
       <Container maxWidth="xl">
@@ -51,7 +61,7 @@ export default function Experience() {
           variants={container}
           initial="hidden"
           whileInView={"show"}
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ once: false, amount: matches ? 0.2 : 0.5 }}
           exit="exit"
         >
           <Box>
