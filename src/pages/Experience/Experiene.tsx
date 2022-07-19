@@ -61,7 +61,7 @@ export default function Experience() {
           variants={container}
           initial="hidden"
           whileInView={"show"}
-          viewport={{ once: false, amount: matches ? 0.2 : 0.5 }}
+          viewport={{ once: true, amount: matches ? 0.2 : 0.5 }}
           exit="exit"
         >
           <Box>
