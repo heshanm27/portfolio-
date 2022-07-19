@@ -73,7 +73,7 @@ export default function Contact() {
       ...temp,
     });
     console.log(errors);
-    return Object.values(temp).every((x) => x == "");
+    return Object.values(temp).every((x) => x === "");
   };
   const handleonSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
