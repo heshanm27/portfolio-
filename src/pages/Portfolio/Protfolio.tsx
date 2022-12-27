@@ -53,7 +53,7 @@ export default function Protfolio() {
     {
       url: "https://github.com/heshanm27/edu_share_app",
       title: "EduShare App",
-      img: "https://firebasestorage.googleapis.com/v0/b/protfolio-6778e.appspot.com/o/EduShare%20App.PNG?alt=media&token=6e4daab8-99c8-4dcc-ab42-893760c0807b",
+      img: "https://firebasestorage.googleapis.com/v0/b/protfolio-6778e.appspot.com/o/SRi%20lankan%20News%20Api-1.jpg?alt=media&token=688ea60a-8fdc-4182-b050-00e5f94b6100",
       chips: ["Flutter", "Firebase"],
     },
     {

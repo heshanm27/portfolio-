@@ -1,12 +1,4 @@
-import {
-  Box,
-  Button,
-  Container,
-  Stack,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
+import { Box, Button, Container, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import PinterestIcon from "@mui/icons-material/Pinterest";
@@ -16,12 +8,7 @@ import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import { Engine } from "tsparticles-engine";
 import { motion } from "framer-motion";
-import {
-  container,
-  itemLogo,
-  itemBtn,
-  item,
-} from "../../components/Animations/Animations";
+import { container, itemLogo, itemBtn, item } from "../../components/Animations/Animations";
 export default function Home() {
   const { ref } = useInView();
   const theme = useTheme();
@@ -56,10 +43,7 @@ export default function Home() {
   ];
 
   const handleDownlaod = () => {
-    window.open(
-      "https://drive.google.com/file/d/1dlzUCKvU3PWk7_8bHYYyw36xSDemUPkp/view?usp=sharing",
-      "_blank"
-    );
+    window.open("https://drive.google.com/u/0/uc?id=1aaDYCL0EndF42yaT3tRFUBWgJ1QGW1X7&export=download", "_blank");
   };
 
   const handleOnClick = () => {
@@ -76,19 +60,10 @@ export default function Home() {
   return (
     <div id="home" ref={ref} style={{ height: "100vh" }}>
       <Container maxWidth="xl" sx={ContainerStyle}>
-        <motion.div
-          variants={container}
-          initial="hidden"
-          animate="show"
-          exit="exit"
-        >
+        <motion.div variants={container} initial="hidden" animate="show" exit="exit">
           <Box sx={{ p: 2 }}>
             <motion.div variants={item}>
-              <Stack
-                direction="row"
-                alignItems="center"
-                justifyContent={"center"}
-              >
+              <Stack direction="row" alignItems="center" justifyContent={"center"}>
                 <Stack direction="column" alignItems="center">
                   <Typography variant="h5" alignItems="center" color="white">
                     Hello I'm
@@ -103,24 +78,11 @@ export default function Home() {
               </Stack>
             </motion.div>
             <motion.div variants={item}>
-              <Stack
-                direction="row"
-                justifyContent="center"
-                spacing={5}
-                sx={{ marginTop: "40px" }}
-              >
-                <Button
-                  variant="outlined"
-                  color="primary"
-                  onClick={handleDownlaod}
-                >
+              <Stack direction="row" justifyContent="center" spacing={5} sx={{ marginTop: "40px" }}>
+                <Button variant="outlined" color="primary" onClick={handleDownlaod}>
                   Download CV
                 </Button>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  onClick={handleOnClick}
-                >
+                <Button variant="contained" color="primary" onClick={handleOnClick}>
                   Let's Talk
                 </Button>
               </Stack>
@@ -149,13 +111,7 @@ export default function Home() {
                 SocialMedia.map((value, index) => {
                   return (
                     <motion.div variants={itemBtn}>
-                      <CustomeIconButton
-                        key={index}
-                        Icon={value.icon}
-                        url={value.url}
-                        label={value.label}
-                        isScoial={false}
-                      />
+                      <CustomeIconButton key={index} Icon={value.icon} url={value.url} label={value.label} isScoial={false} />
                     </motion.div>
                   );
                 })}
@@ -163,12 +119,7 @@ export default function Home() {
 
             <motion.div variants={itemLogo}>
               <Stack direction="row" justifyContent="center">
-                <img
-                  src={logo}
-                  alt="mainlogo"
-                  width={matches === true ? "60%" : "24%"}
-                  style={{ position: "absolute", bottom: "0" }}
-                />
+                <img src={logo} alt="mainlogo" width={matches === true ? "60%" : "24%"} style={{ position: "absolute", bottom: "0" }} />
               </Stack>
             </motion.div>
           </Box>
