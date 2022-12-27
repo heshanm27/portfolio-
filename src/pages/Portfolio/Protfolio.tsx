@@ -38,6 +38,30 @@ export default function Protfolio() {
       img: "https://firebasestorage.googleapis.com/v0/b/protfolio-6778e.appspot.com/o/worldTime.png?alt=media&token=3c342ae9-dff3-43ee-b78d-15d4548bf7c1",
       chips: ["Flutter", "Dart", "Firebase"],
     },
+    {
+      url: "https://github.com/heshanm27/WordlTimeApp",
+      title: "WordlTimeApp",
+      img: "https://firebasestorage.googleapis.com/v0/b/protfolio-6778e.appspot.com/o/worldTime.png?alt=media&token=3c342ae9-dff3-43ee-b78d-15d4548bf7c1",
+      chips: ["Flutter", "Dart", "Firebase"],
+    },
+    {
+      url: "https://github.com/heshanm27/EduShare",
+      title: "EduShare",
+      img: "https://firebasestorage.googleapis.com/v0/b/protfolio-6778e.appspot.com/o/EduShare.PNG?alt=media&token=891254b6-64c8-4054-8944-e4410c89d580",
+      chips: ["React", "Firebase"],
+    },
+    {
+      url: "https://github.com/heshanm27/edu_share_app",
+      title: "EduShare App",
+      img: "https://firebasestorage.googleapis.com/v0/b/protfolio-6778e.appspot.com/o/EduShare%20App.PNG?alt=media&token=6e4daab8-99c8-4dcc-ab42-893760c0807b",
+      chips: ["Flutter", "Firebase"],
+    },
+    {
+      url: "https://github.com/heshanm27/srilankanewsapi",
+      title: "SriLanka News API(Rapid API)",
+      img: "https://firebasestorage.googleapis.com/v0/b/protfolio-6778e.appspot.com/o/NewsApi.PNG?alt=media&token=343b7b3c-b0f5-4b72-a95a-2f1e31d6483c",
+      chips: ["NodeJS", "ExpressJS", "MongoDB", "Puppeteer", "cheerio"],
+    },
   ];
 
   return (
@@ -48,13 +72,7 @@ export default function Protfolio() {
       }}
     >
       <Container maxWidth="lg">
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView={"show"}
-          viewport={{ once: true, amount: matches ? 0.2 : 0.5 }}
-          exit="exit"
-        >
+        <motion.div variants={container} initial="hidden" whileInView={"show"} viewport={{ once: true, amount: matches ? 0.2 : 0.5 }} exit="exit">
           <motion.div variants={item}>
             <Titles mainTitle="Portfolio" subTitle="My Recent Work" />
           </motion.div>
@@ -74,12 +92,7 @@ export default function Protfolio() {
                   return (
                     <Grid xs={12} md={4} sx={{ padding: "20px" }} key={index}>
                       <motion.div variants={item} whileHover={{ scale: 1.2 }}>
-                        <CustomeCard
-                          title={value.title}
-                          url={value.url}
-                          chips={value.chips}
-                          img={value.img}
-                        />
+                        <CustomeCard title={value.title} url={value.url} chips={value.chips} img={value.img} />
                       </motion.div>
                     </Grid>
                   );

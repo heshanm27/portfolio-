@@ -43,10 +43,14 @@ export default function Home() {
       url: "http://www.linkedin.com",
       label: "LinkedIn",
     },
-    { icon: <GitHubIcon />, url: "http://www.linkedin.com", label: "GitHub" },
+    {
+      icon: <GitHubIcon />,
+      url: "https://github.com/heshanm27",
+      label: "GitHub",
+    },
     {
       icon: <PinterestIcon />,
-      url: "http://www.linkedin.com",
+      url: "https://www.pinterest.com/mheshan27/",
       label: "Pinterest",
     },
   ];
